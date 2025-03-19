@@ -18,12 +18,12 @@ const Reviews = () => {
     const [activeTab, setActiveTab] = useState("Rating & Reviews");
 
     return (
-        <div className="container max-w-[1240px] mx-auto p-6">
+        <div className="container max-w-[1240px] mx-auto p-4">
             <div className="flex border-b border-[#0000001A] justify-between ">
                 {TABS_LIST.map(( tab) => (
                     <button
                         key={tab}
-                        className={`py-2 px-4 text-xl font-normal ${activeTab === tab ? "border-b-2 border-black text-black" : "text-[#00000099]"
+                        className={`pb-6 md:text-xl text-base whitespace-nowrap font-normal ${activeTab === tab ? "border-b-2 border-black text-black" : "text-[#00000099]"
                             }`}
                         onClick={() => setActiveTab(tab)}
                     >
@@ -33,7 +33,14 @@ const Reviews = () => {
             </div>
             {activeTab === "Rating & Reviews" && (
                 <div>
-                    <h2 className="text-2xl font-bold mt-6">All Reviews <span className="font-normal text-base text-[#00000099]"> (451)</span></h2>
+                    <div className="flex justify-between mt-[19px] mb-[29px]">
+                        <h2 className="text-2xl font-bold ">All Reviews <span className="font-normal text-base text-[#00000099]"> (451)</span></h2>
+                        <div className="flex bg-[#F0F0F0] gap-[21px] py-[13px] px-5 rounded-[62px]">
+                            <button className="font-medium text-base">Latest</button>
+                            <Image src="/assets/images/svg/arrow.svg" alt=" arrow" width={16} height={16}/>
+
+                        </div>
+                    </div>
                     <div className="grid md:grid-cols-2 gap-5 mt-4">
                         {REVIEW_LIST.map((review) => (
                             <div
@@ -61,7 +68,7 @@ const Reviews = () => {
                             </div>
                         ))}
                     </div>
-                    <button className="mt-9 border border-[#0000001A] py-[13px] px-[42px] font-medium rounded-[62px] block mx-auto">
+                    <button className="mt-9 border cursor-pointer border-[#0000001A] py-[13px] px-[42px] font-medium rounded-[62px] block mx-auto hover:bg-black hover:text-white transition-all duration-500">
                         Load More Reviews
                     </button>
                 </div>
