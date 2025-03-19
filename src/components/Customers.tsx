@@ -12,7 +12,7 @@ import {CUSTOMERS_LIST} from "../utils/helper"
 
 const Customers: React.FC = () => {
     return (
-        <div className="py-20">
+        <div className="pt-20 pb-[170px]">
             <div className="container max-w-[1240px] mx-auto px-4">
             <CustomHeading myText="OUR HAPPY CUSTOMERS" myClass="!text-left md:!pb-10 !pb-6"/>
 

@@ -30,7 +30,7 @@ const Arrivals = () => {
                         {ARRIVALS_LIST.map((arrivals) => (
                             <SwiperSlide key={arrivals.id}>
                                 <div>
-                                    <Image className='max-sm:max-w-[180px]' src={arrivals.image} alt={arrivals.title} width={295} height={298} />
+                                    <Image className='max-sm:max-w-[180px] hover:scale-95 transition-all duration-500 cursor-pointer' src={arrivals.image} alt={arrivals.title} width={295} height={298} />
                                     <p className='font-bold lg:text-xl text-base text-black pt-4 pb-2'>{arrivals.title}</p>
                                     <div className='flex gap-[13px] pb-2'>
                                         <Image src={arrivals.ratingImage} alt='rating' width={104} height={18.49} />
@@ -52,7 +52,7 @@ const Arrivals = () => {
                     <div className='!hidden lg:flex gap-5'>
                         {ARRIVALS_LIST.map((arrivals) => (
                             <div key={arrivals.id}>
-                                <Image src={arrivals.image} alt={arrivals.title} width={295} height={298} />
+                                <Image className='hover:scale-150 transition-all duration-1000 cursor-pointer' src={arrivals.image} alt={arrivals.title} width={295} height={298} />
                                 <p className='font-bold text-xl text-black pt-4 pb-2'>{arrivals.title}</p>
                                 <div className='flex gap-[13px] pb-2'>
                                     <Image src={arrivals.ratingImage} alt='rating' width={104} height={18.49} />
@@ -71,7 +71,7 @@ const Arrivals = () => {
                         ))}
                     </div>
                 </div>
-                <button className='font-medium cursor-pointer flex justify-center  max-sm:w-full max-sm:mr-4 text-center mx-auto text-base py-[15px] px-20 rounded-[62px] border border-[#0000001A]'>View All</button>
+                <button className='font-medium cursor-pointer flex justify-center  max-sm:w-full max-sm:mr-4 text-center mx-auto text-base py-[15px] px-20 rounded-[62px] border border-[#0000001A] hover:bg-black hover:text-white transition-all duration-500'>View All</button>
                 <p className='border border-[#0000001A] w-full md:mt-[64px] mt-10'></p>
             </div>
         </div>

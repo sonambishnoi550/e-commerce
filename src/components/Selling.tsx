@@ -32,7 +32,7 @@ const Selling = () => {
                                 <SwiperSlide key={selling.id} className="pointer-events-none">
                                     <div className="pointer-events-auto">
                                         <Image
-                                            className='max-sm:max-w-[180px]'
+                                            className='max-sm:max-w-[180px] hover:scale-95 transition-all duration-500 cursor-pointer'
                                             src={selling.image}
                                             alt={selling.title}
                                             width={295}
@@ -60,7 +60,7 @@ const Selling = () => {
                     <div className='hidden xl:flex gap-5'>
                         {SELLING_LIST.map((selling) => (
                             <div key={selling.id}>
-                                <Image
+                                <Image className='hover:scale-95 transition-all duration-500 cursor-pointer'
                                     src={selling.image}
                                     alt={selling.title}
                                     width={295}
@@ -84,7 +84,7 @@ const Selling = () => {
                         ))}
                     </div>
                 </div>
-                <button className='font-medium cursor-pointer flex mx-auto max-sm:w-full justify-center items-center text-base py-[15px] px-20 rounded-[62px] border border-[#0000001A]'>
+                <button className='font-medium cursor-pointer flex mx-auto max-sm:w-full justify-center items-center text-base py-[15px] px-20 rounded-[62px] border border-[#0000001A] hover:bg-black hover:text-white transition-all duration-500'>
                     View All
                 </button>
             </div>

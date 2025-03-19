@@ -91,7 +91,7 @@ export  const CUSTOMERS_LIST = [
         {
             name: "Sarah M.",
             review:
-                "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual style of the clothes wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+                "I'm blown away by the quality and style of my personal the clothes I received from Shop.co. From casual style of the clothes wear to elegant dresses, every piece I've bought has exceeded my expectations.",
         },
         {
             name: "Alex K.",
@@ -106,7 +106,7 @@ export  const CUSTOMERS_LIST = [
         {
             name: "Sarah M.",
             review:
-                "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual style of the clothes wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+                "I'm blown away by the quality and style my personal of the clothes I received from Shop.co. From casual style of the clothes wear to elegant dresses, every piece I've bought has exceeded my expectations.",
         },
         {
             name: "Alex K.",
