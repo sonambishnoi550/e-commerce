@@ -6,8 +6,6 @@ import Selling from '@/components/Selling'
 import Style from '@/components/Style'
 import Customers from '@/components/Customers'
 import Footer from '@/components/Footer'
-import Like from '@/components/Like'
-import Review from '@/components/Review'
 const page = () => {
   return (
     <div>
@@ -18,8 +16,6 @@ const page = () => {
       <Style />
       <Customers />
       <Footer />
-      <Like />
-      <Review/>
     </div>
   )
 }

@@ -10,7 +10,7 @@ import { Autoplay } from "swiper/modules";
 
 const Selling = () => {
     return (
-        <div className='md:pt-[72px] pt-10 md:pb-20 pb-[50px]'>
+        <div className='md:pt-[72px] pt-10 md:pb-[168px] pb-[50px]'>
             <div className='container max-w-[1240px] mx-auto px-4'>
                 <CustomHeading myClass='!uppercase' myText='You might also like' />
                 <div className='md:pt-[55px] md:pb-9 pt-8 pb-6'>
