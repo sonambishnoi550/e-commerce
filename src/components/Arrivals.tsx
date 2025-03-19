@@ -71,7 +71,7 @@ const Arrivals = () => {
                         ))}
                     </div>
                 </div>
-                <button className='font-medium flex justify-center  max-sm:w-full max-sm:mr-4 text-center mx-auto text-base py-[15px] px-20 rounded-[62px] border border-[#0000001A]'>View All</button>
+                <button className='font-medium cursor-pointer flex justify-center  max-sm:w-full max-sm:mr-4 text-center mx-auto text-base py-[15px] px-20 rounded-[62px] border border-[#0000001A]'>View All</button>
                 <p className='border border-[#0000001A] w-full md:mt-[64px] mt-10'></p>
             </div>
         </div>

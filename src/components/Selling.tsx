@@ -84,7 +84,7 @@ const Selling = () => {
                         ))}
                     </div>
                 </div>
-                <button className='font-medium flex mx-auto max-sm:w-full justify-center items-center text-base py-[15px] px-20 rounded-[62px] border border-[#0000001A]'>
+                <button className='font-medium cursor-pointer flex mx-auto max-sm:w-full justify-center items-center text-base py-[15px] px-20 rounded-[62px] border border-[#0000001A]'>
                     View All
                 </button>
             </div>
