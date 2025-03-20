@@ -1,25 +1,21 @@
 "use client";
 import React from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Image from "next/image";
 import { ARRIVALS_LIST } from "@/utils/helper";
+import { useCart } from "@/components/CartContext";
 
 const ProductDetails = () => {
     const { id } = useParams();
     const product = ARRIVALS_LIST.find((item) => item.id === Number(id));
+    const { addToCart } = useCart();
 
     if (!product) return <p className="text-center text-xl font-bold">Product Not Found</p>;
 
     return (
         <div className="container mx-auto p-6 max-w-[1240px]">
             <div className="flex flex-col md:flex-row gap-8">
-                <Image
-                    src={product.image}
-                    alt={product.title}
-                    width={500}
-                    height={500}
-                    className="rounded-lg"
-                />
+                <Image src={product.image} alt={product.title} width={500} height={500} className="rounded-lg" />
                 <div>
                     <h1 className="text-3xl font-bold">{product.title}</h1>
                     <div className="flex items-center gap-2 my-2">
@@ -35,7 +31,10 @@ const ProductDetails = () => {
                             </span>
                         )}
                     </div>
-                    <button className="px-6 py-2 bg-black text-white rounded-md mt-4">
+                    <button
+                        className="px-6 py-2 bg-black text-white rounded-md mt-4"
+                        onClick={() => addToCart({ id: product.id, title: product.title, price: product.price, image: product.image, quantity: 1 })}
+                    >
                         Add to Cart
                     </button>
                 </div>

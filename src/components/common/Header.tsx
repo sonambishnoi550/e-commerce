@@ -1,12 +1,15 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useCart } from "@/components/CartContext";
 
 const Header = () => {
     const [open, setOpen] = useState<boolean>(false);
+    const { cart } = useCart();
 
     return (
-        <div className="py-4 bg-white  relative">
+        <div className="py-4 bg-white relative">
             <div className="container max-w-[1240px] mx-auto px-4">
                 <div className="flex justify-between items-center">
                     <button className="lg:hidden z-50" onClick={() => setOpen(!open)}>
@@ -42,20 +45,16 @@ const Header = () => {
                                 placeholder="Search for products..."
                             />
                         </div>
-                        <Image src="/assets/images/svg/cart.svg" alt="cart" width={24} height={24} />
+                        <div className="relative">
+                            <Image src="/assets/images/svg/cart.svg" alt="cart" width={24} height={24} />
+                            {cart.length > 0 && (
+                                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
+                                    {cart.length}
+                                </span>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div
-                className={`fixed top-0 left-0 w-full h-full bg-white flex flex-col justify-center items-center transition-all duration-500 z-40 ${open ? "translate-y-0" : "-translate-y-full"}`}
-            >
-                <nav className="flex flex-col gap-4">
-                    {["Shop", "On Sale", "New Arrivals", "Brands"].map((item, index) => (
-                        <Link key={index} href="#" onClick={() => setOpen(false)} className="font-bold text-base text-black">
-                            {item}
-                        </Link>
-                    ))}
-                </nav>
             </div>
         </div>
     );
