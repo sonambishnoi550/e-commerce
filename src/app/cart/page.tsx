@@ -19,12 +19,16 @@ const CartPage = () => {
                     <div className="space-y-6">
                         {cart.map((item) => (
                             <div key={item.id} className="flex items-center justify-between border-b pb-4">
-                                <Image src={item.image} alt={item.title} width={80} height={80} className="rounded" />
-                                <p className="text-lg font-semibold">{item.title}</p>
+                                <Image src={item.image} alt={item.title} width={124} height={124} className="rounded" />
+                                <div>
+                                <p className="text-xl font-semibold">{item.title}</p>
                                 <p className="text-lg">{item.price}</p>
                                 <p className="text-lg">Qty: {item.quantity}</p>
+                                </div>
                             </div>
+                            
                         ))}
+                            
                     </div>
                 )}
             </div>

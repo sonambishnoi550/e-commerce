@@ -1,2 +1,6 @@
 @import "tailwindcss";
 
+body {
+    font-family: "integral-cf", sans-serif;
+    font-variant-numeric: lining-nums proportional-nums;
+}

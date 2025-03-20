@@ -52,7 +52,7 @@ const Arrivals = () => {
                                     <div className="flex gap-[10px]">
                                         <h4 className="font-bold text-2xl">{product.price}</h4>
                                         {product.oldPrice && (
-                                            <h4 className="font-bold md:text-2xl text-xl text-black/40">{product.oldPrice}</h4>
+                                            <h4 className="font-bold md:text-2xl text-xl text-black/40 line-through">{product.oldPrice}</h4>
                                         )}
                                         {product.discount && (
                                             <button className="text-xs text-[#FF3333] font-medium py-[6px] px-[13.5px] bg-[#FF33331A] rounded-[62px]">

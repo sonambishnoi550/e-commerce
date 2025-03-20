@@ -45,9 +45,9 @@ const Footer = () => {
             return;
         }
 
-        const serviceID = "your_service_id";
-        const templateID = "your_template_id";
-        const publicKey = "your_public_key";
+        const serviceID = "service_hvt2c6j";
+        const templateID = "template_3qy6u4q";
+        const publicKey = "g1TgSgh61bwnSsjGZ";
 
         const templateParams = { user_email: email };
 
