@@ -60,21 +60,10 @@ const Arrivals = () => {
                                             </button>
                                         )}
                                     </div>
-                                    <button
-                                        className="mt-3 px-4 py-2 bg-black text-white rounded-md text-sm"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleNavigation(product.id);
-                                        }}
-                                    >
-                                        View Details
-                                    </button>
                                 </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
-
-                    {/* Static grid for larger screens */}
                     <div className="!hidden lg:flex gap-5">
                         {ARRIVALS_LIST.map((product) => (
                             <div key={product.id} className="cursor-pointer" onClick={() => handleNavigation(product.id)}>
@@ -103,15 +92,7 @@ const Arrivals = () => {
                                         </button>
                                     )}
                                 </div>
-                                <button
-                                    className="mt-3 px-4 py-2 bg-black text-white rounded-md text-sm"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        handleNavigation(product.id);
-                                    }}
-                                >
-                                    View Details
-                                </button>
+                              
                             </div>
                         ))}
                     </div>

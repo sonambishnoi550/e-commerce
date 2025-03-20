@@ -10,25 +10,19 @@ const Footer = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
     const [isValid, setIsValid] = useState(true);
-
-    // Email Validation Function
     const validateEmail = (email: string) => {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailPattern.test(email);
     };
-
-    // Input change hone par email validate karo
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputEmail = e.target.value;
         setEmail(inputEmail);
-
-        // Check if email is valid
         if (inputEmail.trim() === "" || validateEmail(inputEmail)) {
             setIsValid(true);
             setMessage("");
         } else {
             setIsValid(false);
-            setMessage("❌ Invalid email format. Please enter a valid email.");
+            setMessage("Invalid email format. Please enter a valid email.");
         }
     };
 
@@ -38,14 +32,14 @@ const Footer = () => {
         setMessage("");
 
         if (!email.trim()) {
-            setMessage("❌ Please enter your email.");
+            setMessage("Please enter your email.");
             setIsValid(false);
             setLoading(false);
             return;
         }
 
         if (!validateEmail(email)) {
-            setMessage("❌ Invalid email format. Please enter a valid email.");
+            setMessage("Invalid email format. Please enter a valid email.");
             setIsValid(false);
             setLoading(false);
             return;
@@ -59,12 +53,12 @@ const Footer = () => {
 
         try {
             await emailjs.send(serviceID, templateID, templateParams, publicKey);
-            setMessage("✅ Subscribed successfully!");
+            setMessage(" Subscribed successfully!");
             setEmail("");
             setIsValid(true);
         } catch (error) {
             console.error("EmailJS Error:", error);
-            setMessage("❌ Failed to subscribe. Please try again.");
+            setMessage("Failed to subscribe. Please try again.");
         }
 
         setLoading(false);
@@ -103,8 +97,6 @@ const Footer = () => {
                         {message && <p className="text-white text-sm mt-2">{message}</p>}
                     </form>
                 </div>
-
-                {/* Footer Content */}
                 <div className="flex flex-wrap justify-between md:gap-10 gap-6 pb-[50px]">
                     <div className="max-w-[248px]">
                         <Link href="#">
