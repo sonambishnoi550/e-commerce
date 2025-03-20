@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
-    const [open, setOpen] = useState<boolean>(false);
+    const [open, setOpen] = useState<boolean>();
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
     const [cartCount, setCartCount] = useState(0);
     const [showBanner, setShowBanner] = useState(true);
@@ -60,12 +60,10 @@ const Header = () => {
             <div className="py-4 bg-white relative">
                 <div className="container max-w-[1240px] mx-auto px-4">
                     <div className="flex justify-between items-center">
-                        <button className="lg:hidden z-50" onClick={() => setOpen(!open)}>
-                            <div className="size-[30px] flex flex-col justify-between h-5">
-                                <span className={`bg-black rounded-full w-[39px] h-1 transition-all duration-300 ${open ? "translate-x-10 opacity-0" : ""}`} />
-                                <span className={`bg-black rounded-full w-[39px] h-1 transition-all duration-300 ${open ? "rotate-45" : ""}`} />
-                                <span className={`bg-black rounded-full w-[39px] h-1 transition-all duration-300 ${open ? "-rotate-45" : ""}`} />
-                            </div>
+                        <button className="overflow-hidden relative z-50 lg:hidden size-6 max-sm:h-4 flex flex-col justify-between items-center " onClick={() => setOpen(!open)}>
+                            <span className={`bg-black rounded-full w-6 h-1 block transition-all duration-300 ${open ? "translate-x-10" : ""}`}></span>
+                            <span className={`bg-black rounded-full after:rounded-lg w-6 h-1 block relative after:bg-transparent after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:transition-all after:duration-300 transition-all duration-300 ${open ? "rotate-45 after:rotate-90 after:!bg-black" : ""}`}></span>
+                            <span className={`bg-black rounded-full w-6 h-1 block transition-all duration-300 ${open ? "-translate-x-10" : ""}`}></span>
                         </button>
                         <Link href="#">
                             <h2 className="font-bold text-[32px] text-black font-integral">SHOP.CO</h2>
@@ -121,6 +119,17 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div
+                className={`fixed top-0 left-0 w-full h-full bg-white flex flex-col justify-center items-center transition-all duration-500 z-40 ${open ? "translate-y-0" : "-translate-y-full"}`}
+            >
+                <nav className="flex flex-col gap-4">
+                    {["Shop", "On Sale", "New Arrivals", "Brands"].map((item, index) => (
+                        <Link key={index} href="#" onClick={() => setOpen(false)} className="font-bold text-base text-black">
+                            {item}
+                        </Link>
+                    ))}
+                </nav>
             </div>
         </div>
     );
