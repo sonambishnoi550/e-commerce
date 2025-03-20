@@ -106,7 +106,7 @@ const Cart = () => {
                         <hr className="text-[#0000001A]" />
                         <div className="flex justify-between font-normal text-xl"><span>Total</span><span className="text-2xl font-bold">${total}</span></div>
                     </div>
-                    <button className="w-full font-medium mt-6 bg-black text-white py-[18px] rounded-[62px]">Go to Checkout <span className="text-2xl ml-3"> →</span></button>
+                    <button className="w-full font-medium mt-6 bg-black text-white py-[14px] rounded-[62px]">Go to Checkout <span className="text-2xl ml-3"> →</span></button>
                 </div>
             </div>
         </div>

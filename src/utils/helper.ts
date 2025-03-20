@@ -224,3 +224,20 @@ export const REVIEW_LIST = [
             "I'm not just wearing a t-shirt; I'm wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter.",
     },
 ];
+export const PRODUCT_LIST = {
+    title: "ONE LIFE GRAPHIC T-SHIRT",
+    description:
+        "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+    price: 260,
+    originalPrice: 300,
+    discount: "-40%",
+    rating: 4.5,
+    images: [
+        "/assets/images/png/arrival-one.png",
+        "/assets/images/png/like-one.png",
+        "/assets/images/png/selling-one.png",
+    ],
+    colors: ["#5A4D32", "#2D3D36", "#282A46"],
+    sizes: ["Small", "Medium", "Large", "X-Large"],
+};
+
