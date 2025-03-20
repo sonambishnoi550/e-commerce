@@ -7,7 +7,7 @@ export const ARRIVALS_LIST = [
     {
         id: 1,
         image: '/assets/images/png/arrival-one.png',
-        title: 'T-shirt with Tape Details',
+        title: 'T shirt with Tape Details',
         ratingImage: '/assets/images/svg/arrival-one-rating.svg',
         rating: 4.5,
         price: '$120',
@@ -37,7 +37,7 @@ export const ARRIVALS_LIST = [
     {
         id: 4,
         image: '/assets/images/png/arrival-four.png',
-        title: 'Sleeve Striped T-shirt',
+        title: 'Sleeve Striped T shirt',
         ratingImage: '/assets/images/svg/arrival-one-rating.svg',
         rating: 4.5,
         price: '$130',
@@ -59,7 +59,7 @@ export const SELLING_LIST = [
     {
         id: 2,
         image: '/assets/images/png/selling-two.png',
-        title: 'Courage Graphic T-shirt',
+        title: 'Courage Graphic T shirt',
         ratingImage: '/assets/images/svg/selling-four-star.svg',
         rating: 4,
         price: '$240',
@@ -138,8 +138,8 @@ export const LIKE_LIST = [
         title: 'Polo with Contrast Trims',
         ratingImage: '/assets/images/svg/selling-four-star.svg',
         rating: 4,
-        price: '$212',
-        oldPrice: '$242',
+        price: '212',
+        oldPrice: '242',
         discount: '-20%',
     },
     {
@@ -231,7 +231,7 @@ export const REVIEW_LIST = [
     },
 ];
 export const SORTED_LIST = [
-    { id: 1, image: '/assets/images/png/green1-t-shirt.png', alt: 'green1-t-shirt' },
-    { id: 2, image: '/assets/images/png/green-t-shirt.png', alt: 'green-t-shirt' },
-    { id: 3, image: '/assets/images/png/green-man-t-shirt.png', alt: 'green-t-shirt' }
+    { id: 1, image: '/assets/images/png/t-shirt-one.png', alt: 't-shirt' },
+    { id: 2, image: '/assets/images/png/t-shirt-two.png', alt: 't-shirt' },
+    { id: 3, image: '/assets/images/png/t-shirt-three.png', alt: 't-shirt' }
 ];

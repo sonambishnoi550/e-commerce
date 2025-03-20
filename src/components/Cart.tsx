@@ -53,9 +53,9 @@ const Cart: React.FC = () => {
                 <h3 className='font-normal text-base text-black/60 pb-3 text-left'>Home <span className='text-black'>&gt; Card</span> </h3>
                 <CustomHeading myText="Your Cart" myClass="!mb-[40px] !text-left !text-[40px]" />
                 <div className="flex max-lg:flex-col gap-10">
-                    <div className="lg:w-7/12 w-full border border-black/10 px-6 rounded-[20px]">
+                    <div className="lg:w-7/12 w-full border border-black/10 p-6 rounded-[20px]">
                         {cart.length === 0 ? (
-                            <p>Your cart is empty.</p>
+                            <p className='text-3xl'>Your cart is empty.</p>
                         ) : (
                             cart.map((item, index) => (
                                 <div key={index} className="flex items-center justify-between border-b border-black/10 py-6">

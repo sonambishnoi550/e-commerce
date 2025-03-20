@@ -135,7 +135,7 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
           <div>
             <h1 className="text-4xl ff-integral font-bold">{item.title}</h1>
             <div className="flex items-center mt-2">
-              <Image src="/assets/images/svg/5star.svg" alt="Star" width={104} height={19} />
+              <Image src="/assets/images/svg/selling-five-star.svg" alt="Star" width={104} height={19} />
               <span className="ml-2 text-gray-500 text-sm">{item.rating}/5</span>
             </div>
             <p className="text-[32px] mt-4 font-bold">${item.price}</p>
