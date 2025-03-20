@@ -1,46 +1,38 @@
 "use client";
-import React from "react";
-import { useParams } from "next/navigation";
-import Image from "next/image";
-import { ARRIVALS_LIST } from "@/utils/helper";
-import { useCart } from "@/components/CartContext";
+import React from 'react';
+import { useParams } from 'next/navigation';
+import Image from 'next/image';
+import { ARRIVALS_LIST, SELLING_LIST } from '@/utils/helper';
 
-const ProductDetails = () => {
+const Product = () => {
     const { id } = useParams();
-    const product = ARRIVALS_LIST.find((item) => item.id === Number(id));
-    const { addToCart } = useCart();
+    const allData = [...ARRIVALS_LIST, ...SELLING_LIST];
 
-    if (!product) return <p className="text-center text-xl font-bold">Product Not Found</p>;
+    const item = allData.find((p) => p.id === Number(id));
+
+    if (!item) return <p className="text-center text-xl font-bold">Product not found</p>;
 
     return (
-        <div className="container mx-auto p-6 max-w-[1240px]">
-            <div className="flex flex-col md:flex-row gap-8">
-                <Image src={product.image} alt={product.title} width={500} height={500} className="rounded-lg" />
+        <div className="container mx-auto py-10">
+            <div className="flex gap-10">
+                <Image src={item.image} alt={item.title} width={400} height={400} />
                 <div>
-                    <h1 className="text-3xl font-bold">{product.title}</h1>
-                    <div className="flex items-center gap-2 my-2">
-                        <Image src={product.ratingImage} alt="rating" width={104} height={18.49} />
-                        <p className="text-lg">{product.rating}/5</p>
-                    </div>
-                    <div className="flex items-center gap-4 my-3">
-                        <h2 className="text-2xl font-bold">{product.price}</h2>
-                        {product.oldPrice && <span className="text-xl text-gray-500 line-through">{product.oldPrice}</span>}
-                        {product.discount && (
-                            <span className="text-red-500 font-semibold px-2 py-1 bg-red-100 rounded-md">
-                                {product.discount}
-                            </span>
+                    <h1 className="text-4xl font-bold">{item.title}</h1>
+                    <p className="text-2xl">
+                        ${item.price}
+                        {item.originalPrice && (
+                            <span className="line-through text-gray-400 ml-2">${item.originalPrice}</span>
                         )}
-                    </div>
-                    <button
-                        className="px-6 py-2 bg-black text-white rounded-md mt-4"
-                        onClick={() => addToCart({ id: product.id, title: product.title, price: product.price, image: product.image, quantity: 1 })}
-                    >
-                        Add to Cart
-                    </button>
+                        {item.discount && (
+                            <span className="text-red-500 ml-2">{item.discount}</span>
+                        )}
+                    </p>
+                    <p className="text-lg mt-4">Rating: {item.rating}/5 ⭐</p>
+                    <button className="mt-6 bg-black text-white py-2 px-6 rounded-lg">Add to Cart</button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default ProductDetails;
+export default Product;

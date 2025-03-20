@@ -11,7 +11,7 @@ export const ARRIVALS_LIST = [
         ratingImage: '/assets/images/svg/arrival-one-rating.svg',
         rating: 4.5,
         price: '$120',
-        oldPrice: null,
+        originalPrice: null,
         discount: null,
     },
     {
@@ -21,7 +21,7 @@ export const ARRIVALS_LIST = [
         ratingImage: '/assets/images/svg/arrival-two-rating.svg',
         rating: 3.5,
         price: '$240',
-        oldPrice: '$260',
+        originalPrice: '$260',
         discount: '-20%',
     },
     {
@@ -31,7 +31,7 @@ export const ARRIVALS_LIST = [
         ratingImage: '/assets/images/svg/arrival-one-rating.svg',
         rating: 4.5,
         price: '$80',
-        oldPrice: null,
+        originalPrice: null,
         discount: null,
     },
     {
@@ -41,7 +41,7 @@ export const ARRIVALS_LIST = [
         ratingImage: '/assets/images/svg/arrival-one-rating.svg',
         rating: 4.5,
         price: '$130',
-        oldPrice: '$160',
+        originalPrice: '$160',
         discount: '-30%',
     },
 ];
@@ -53,7 +53,7 @@ export const SELLING_LIST = [
         ratingImage: '/assets/images/svg/selling-five-star.svg',
         rating: 5,
         price: '$120',
-        oldPrice: null,
+        originalPrice: null,
         discount: null,
     },
     {
@@ -63,7 +63,7 @@ export const SELLING_LIST = [
         ratingImage: '/assets/images/svg/selling-four-star.svg',
         rating: 4,
         price: '$240',
-        oldPrice: '$260',
+        originalPrice: '$260',
         discount: '-20%',
     },
     {
@@ -73,7 +73,7 @@ export const SELLING_LIST = [
         ratingImage: '/assets/images/svg/selling-three-star.svg',
         rating: 3,
         price: '$80',
-        oldPrice: null,
+        originalPrice: null,
         discount: null,
     },
     {
@@ -83,41 +83,47 @@ export const SELLING_LIST = [
         ratingImage: '/assets/images/svg/arrival-one-rating.svg',
         rating: 4.5,
         price: '$130',
-        oldPrice: null,
+        originalPrice: null,
         discount: null,
     },
 ];
-export  const CUSTOMERS_LIST = [
-        {
-            name: "Sarah M.",
-            review:
-                "I'm blown away by the quality and style of my personal the clothes I received from Shop.co. From casual style of the clothes wear to elegant dresses, every piece I've bought has exceeded my expectations.",
-        },
-        {
-            name: "Alex K.",
-            review:
-                "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
-        },
-        {
-            name: "James L.",
-            review:
-                "As someone who's always on the lookout for unique fashion pieces, I'm thrilled for unique fashion to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
-        },
-        {
-            name: "Sarah M.",
-            review:
-                "I'm blown away by the quality and style my personal of the clothes I received from Shop.co. From casual style of the clothes wear to elegant dresses, every piece I've bought has exceeded my expectations.",
-        },
-        {
-            name: "Alex K.",
-            review:
-                "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
-        },
-        {
-            name: "James L.",
-            review:
-                "As someone who's always on the lookout for unique fashion pieces, I'm thrilled for unique fashion to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
-        },
+export const CUSTOMERS_LIST = [
+    {
+        rating: 5,
+        name: "Sarah M.",
+        review:
+            "I'm blown away by the quality and style of my personal the clothes I received from Shop.co. From casual style of the clothes wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    },
+    {
+        rating: 5,
+        name: "Alex K.",
+        review:
+            "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+    },
+    {
+        rating: 5,
+        name: "James L.",
+        review:
+            "As someone who's always on the lookout for unique fashion pieces, I'm thrilled for unique fashion to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+    },
+    {
+        rating: 5,
+        name: "Sarah M.",
+        review:
+            "I'm blown away by the quality and style my personal of the clothes I received from Shop.co. From casual style of the clothes wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    },
+    {
+        rating: 5,
+        name: "Alex K.",
+        review:
+            "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+    },
+    {
+        rating: 5,
+        name: "James L.",
+        review:
+            "As someone who's always on the lookout for unique fashion pieces, I'm thrilled for unique fashion to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+    },
 ];
 export const NAV_SECTIONS_LIST = [
     { title: "Company", links: ["About", "Features", "Works", "Career"] },
@@ -224,5 +230,19 @@ export const REVIEW_LIST = [
             "I'm not just wearing a t-shirt; I'm wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter.",
     },
 ];
+export const SHOP_DATA = ['Men', 'Women', 'Kids', 'Accessories', 'Sale'];
 
-
+export const HEADER_LIST = [
+    {
+        title: "On Sale",
+        link: "#sale",
+    },
+    {
+        title: "New Arrivals",
+        link: "#arrivals",
+    },
+    {
+        title: "Brands",
+        link: "#brands",
+    },
+];

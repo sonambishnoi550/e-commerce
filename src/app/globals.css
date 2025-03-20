@@ -4,3 +4,26 @@ body {
     font-family: "integral-cf", sans-serif;
     font-variant-numeric: lining-nums proportional-nums;
 }
+.swiper-pagination-bullet-active {
+    background-color: black !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    display: none !important;
+}
+
+.blur-effect .swiper-slide {
+    filter: blur(2px);
+    transition: filter 0.3s;
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+
+.blur-effect .swiper-slide-active,
+.blur-effect .swiper-slide-next,
+.blur-effect .swiper-slide-prev {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1);
+}
