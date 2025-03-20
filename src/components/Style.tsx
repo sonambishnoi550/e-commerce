@@ -6,7 +6,7 @@ const Style = () => {
       <div>
           <div className="container max-w-[1240px] mx-auto max-xl:px-4">
               <div className='bg-[#F0F0F0] md:px-[64px] px-6 md:pt-[70px] pt-10 md:pb-[76px] pb-[27px] rounded-[40px]'>
-                  <CustomHeading myText='BROWSE BY dress STYLE' />
+                  <CustomHeading myText='BROWSE BY DRESS STYLE' />
                   <div className='pt-[64px]'>
                       <div className="md:flex md:gap-5 gap-4 max-xl:justify-center">
                           <Image className='xl:max-w-[407px] lg:max-w-[360px] max-sm:mb-4 md:max-w-[330px] max-w-[340px] w-full hover:scale-95 transition-all duration-1000 cursor-pointer' src="/assets/images/png/casual.png" alt='casual' width={407} height={289} />

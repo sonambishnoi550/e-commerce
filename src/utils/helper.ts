@@ -230,19 +230,8 @@ export const REVIEW_LIST = [
             "I'm not just wearing a t-shirt; I'm wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter.",
     },
 ];
-export const SHOP_DATA = ['Men', 'Women', 'Kids', 'Accessories', 'Sale'];
-
-export const HEADER_LIST = [
-    {
-        title: "On Sale",
-        link: "#sale",
-    },
-    {
-        title: "New Arrivals",
-        link: "#arrivals",
-    },
-    {
-        title: "Brands",
-        link: "#brands",
-    },
+export const SORTED_LIST = [
+    { id: 1, image: '/assets/images/png/green1-t-shirt.png', alt: 'green1-t-shirt' },
+    { id: 2, image: '/assets/images/png/green-t-shirt.png', alt: 'green-t-shirt' },
+    { id: 3, image: '/assets/images/png/green-man-t-shirt.png', alt: 'green-t-shirt' }
 ];

@@ -56,9 +56,11 @@ const CommonSlider: React.FC<CommonSliderProps> = ({ title, list }) => {
                             <div className="rounded-[20px] md:w-[295px] w-[198px]">
                                 <Image src={item.image} alt={item.title} width={295} height={298} className="mx-auto rounded-[20px] md:h-[298px] h-[200px]" />
                                 <h3 className="mt-4 md:text-xl text-base font-semibold">{item.title}</h3>
-                                <div className="flex items-center mt-2">
-                                    <Image src="/assets/images/svg/selling-five-star.svg" alt="Star" width={104} height={19} />
-                                    <span className="ml-2 text-gray-500 text-sm">{item.rating}/5</span>
+                                <div className="flex gap-[13px] pb-2">
+                                    <Image src={item.ratingImage} alt="rating" width={104} height={18.49} />
+                                    <p className="text-black font-normal md:text-base text-sm">
+                                        {item.rating}/<span className="text-black/60">5</span>
+                                    </p>
                                 </div>
                                 <div className="mt-2">
                                     <span className="md:text-2xl text-xl font-bold">${item.price}</span>

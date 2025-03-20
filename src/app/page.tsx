@@ -6,7 +6,6 @@ import Selling from '@/components/Selling'
 import Style from '@/components/Style'
 import Customers from '@/components/Customers'
 import Footer from '@/components/Footer'
-import Cart from '@/components/Cart'
 const page = () => {
   return (
     <div>
@@ -17,7 +16,6 @@ const page = () => {
       <Style />
       <Customers />
       <Footer />
-      <Cart />
     </div>
   )
 }

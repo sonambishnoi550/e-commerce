@@ -11,8 +11,6 @@ const Header = () => {
     const [cartCount, setCartCount] = useState(0);
     const [showBanner, setShowBanner] = useState(true);
     const pathname = usePathname();
-
-    // ✅ Single Definition of updateCartCount
     const updateCartCount = () => {
         type CartItem = { quantity: number };
         const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -21,13 +19,12 @@ const Header = () => {
     };
 
     useEffect(() => {
-        // ✅ Fix: Ensure correct localStorage check
         const bannerState = localStorage.getItem("bannerDismissed");
         if (bannerState === "true") {
             setShowBanner(false);
         }
 
-        updateCartCount(); // ✅ Fix: Correct function call
+        updateCartCount();
 
         const handleCartUpdate = () => updateCartCount();
         window.addEventListener("cartUpdate", handleCartUpdate);
@@ -35,11 +32,11 @@ const Header = () => {
         return () => {
             window.removeEventListener("cartUpdate", handleCartUpdate);
         };
-    }, [pathname]); // ✅ Fix: Add pathname dependency to re-run on route change
+    }, [pathname]);
 
     const handleCloseBanner = () => {
         setShowBanner(false);
-        localStorage.setItem("bannerDismissed", "true"); // ✅ Fix: Store banner state
+        localStorage.setItem("bannerDismissed", "true");
     };
 
     return (
@@ -63,7 +60,6 @@ const Header = () => {
             <div className="py-4 bg-white relative">
                 <div className="container max-w-[1240px] mx-auto px-4">
                     <div className="flex justify-between items-center">
-                        {/* Mobile Menu Button */}
                         <button className="lg:hidden z-50" onClick={() => setOpen(!open)}>
                             <div className="size-[30px] flex flex-col justify-between h-5">
                                 <span className={`bg-black rounded-full w-[39px] h-1 transition-all duration-300 ${open ? "translate-x-10 opacity-0" : ""}`} />
@@ -74,8 +70,6 @@ const Header = () => {
                         <Link href="#">
                             <h2 className="font-bold text-[32px] text-black">SHOP.CO</h2>
                         </Link>
-
-                        {/* Desktop Navigation */}
                         <div className="hidden lg:flex gap-6 relative">
                             <div className="relative">
                                 <button
@@ -99,8 +93,6 @@ const Header = () => {
                                 </Link>
                             ))}
                         </div>
-
-                        {/* Right Icons */}
                         <div className="flex items-center gap-4">
                             <button className="md:hidden">
                                 <Image src="/assets/images/svg/search.svg" width={24} height={24} alt="search" />

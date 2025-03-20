@@ -65,7 +65,7 @@ const Footer = () => {
     return (
         <div className="bg-[#F0F0F0] pt-40 md:pb-[81px] pb-[77px] ">
             <div className="container relative max-w-[1240px] mx-auto px-4">
-                <div className="bg-black rounded-[20px] flex max-md:flex-col max-md:w-full justify-between xl:gap-40 py-9 xl:px-[64px] lg:px-10 px-6 absolute lg:-top-[97%] md:-top-[52%] -top-[45%]">
+                <div className="bg-black rounded-[20px] lg:max-w-[992px] xl:max-w-[1280px] md:max-w-[694px] max-w-[600px] max-sm:max-w-[358px] mx-auto flex max-md:flex-col max-md:w-full justify-between xl:gap-40 py-9 xl:px-[64px] lg:px-10 px-6 absolute lg:-top-[97%] md:-top-[52%] -top-[45%]">
                     <h3 className="font-bold xl:text-[40px] text-3xl text-white">
                         STAY UPTO DATE ABOUT OUR LATEST OFFERS
                     </h3>
