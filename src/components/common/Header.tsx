@@ -3,10 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useCart } from "@/components/CartContext";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
     const [open, setOpen] = useState<boolean>(false);
     const { cart } = useCart();
+    const router = useRouter();
 
     return (
         <div className="py-4 bg-white relative">
@@ -41,11 +43,11 @@ const Header = () => {
                             />
                             <input
                                 type="text"
-                                className="xl:w-[577px] w-[480px] h-[48px] bg-[#F0F0F0] rounded-full px-10 py-2 placeholder:text-black/40"
+                                className="xl:w-[577px] w-[480px] h-[48px] outline-none bg-[#F0F0F0] rounded-full px-10 py-2 placeholder:text-black/40"
                                 placeholder="Search for products..."
                             />
                         </div>
-                        <div className="relative">
+                        <div className="relative cursor-pointer" onClick={() => router.push("/cart")}>
                             <Image src="/assets/images/svg/cart.svg" alt="cart" width={24} height={24} />
                             {cart.length > 0 && (
                                 <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-2 py-0.5">
