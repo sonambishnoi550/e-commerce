@@ -101,6 +101,24 @@ const Footer = () => {
                         <p className="font-normal text-sm leading-[22px] pt-[14px] md:pb-[35px] pb-5 text-black/60">
                             We have clothes that suit your style and which you’re proud to wear. From women to men.
                         </p>
+                        <div className="cursor-pointer gap-3 flex">
+
+                            <Link className='bg-white border  hover:scale-110 transition-all duration-700 rounded-full size-[28px] border-[#00000033] flex items-center justify-center' href="https://x.com/?lang=en" target="_blank">
+                                <Image src="/assets/images/svg/twitter.svg" alt="twitter" width={11.17} height={9.03} />
+                            </Link>
+
+                            <Link className='bg-black  hover:scale-110 transition-all duration-700 rounded-full size-[28px] flex items-center justify-center' href="https://www.facebook.com/" target="_blank">
+                                <Image src="/assets/images/svg/facebook.svg" alt="telegram" width={6.32} height={12.17} />
+                            </Link>
+
+                            <Link className='bg-white hover:scale-110 transition-all duration-700 border rounded-full size-[28px] border-[#00000033] flex items-center justify-center' href="https://www.instagram.com/" target="_blank">
+                                <Image src="/assets/images/svg/instagram.svg" alt="discord" width={13.54} height={13.54} />
+                            </Link>
+
+                            <Link className='bg-white hover:scale-110 transition-all duration-700 border rounded-full size-[28px] border-[#00000033] flex items-center justify-center' href="https://github.com/" target="_blank">
+                                <Image src="/assets/images/svg/github.svg" alt="discord" width={12.95} height={12.65} />
+                            </Link>
+                        </div>
                     </div>
                     {NAV_SECTIONS_LIST.map(({ title, links }, index) => (
                         <div key={index}>
