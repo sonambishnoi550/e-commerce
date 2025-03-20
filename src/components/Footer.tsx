@@ -44,13 +44,10 @@ const Footer = () => {
             setLoading(false);
             return;
         }
-
         const serviceID = "service_hvt2c6j";
         const templateID = "template_3qy6u4q";
         const publicKey = "g1TgSgh61bwnSsjGZ";
-
         const templateParams = { user_email: email };
-
         try {
             await emailjs.send(serviceID, templateID, templateParams, publicKey);
             setMessage(" Subscribed successfully!");
@@ -60,7 +57,6 @@ const Footer = () => {
             console.error("EmailJS Error:", error);
             setMessage("Failed to subscribe. Please try again.");
         }
-
         setLoading(false);
     };
 

@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
     });
 
     const getCountEndValue = (index: number) => {
-        const values = [155, 325, 250];
+        const values = [200, 2000, 30000];
         return count ? values[index] || 0 : 0;
     };
 

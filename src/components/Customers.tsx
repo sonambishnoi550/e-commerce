@@ -32,7 +32,7 @@ const Customers: React.FC = () => {
             >
                 {CUSTOMERS_LIST.map((customer, index) => (
                     <SwiperSlide key={index}>
-                        <div className="md:px-8 md:pt-3 p-6 border  border-gray-300 rounded-2xl shadow-md max-w-[400px]">
+                        <div className="md:px-8 md:pt-3 p-6 border border-gray-300 rounded-2xl max-w-[400px]">
                             <Image
                                 className="pb-4"
                                 src="/assets/images/svg/selling-five-star.svg"

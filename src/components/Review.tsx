@@ -31,7 +31,7 @@ const Reviews = () => {
     });
     filteredReviews = filteredReviews.filter(review => {
         const reviewDate = new Date(review.date);
-        const timeDiff = (currentDate.getTime() - reviewDate.getTime()) / (1000 * 60 * 60 * 24); // Difference in days
+        const timeDiff = (currentDate.getTime() - reviewDate.getTime()) / (1000 * 60 * 60 * 24);
 
         if (selectedFilter === "Last 24 Hours") return timeDiff <= 1;
         if (selectedFilter === "Last 7 Days") return timeDiff <= 7;

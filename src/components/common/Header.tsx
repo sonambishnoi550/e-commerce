@@ -34,7 +34,7 @@ const Header = () => {
                         {/* Shop with Dropdown */}
                         <div className="relative">
                             <button
-                                className="font-normal text-base text-black flex items-center gap-2 cursor-pointer"
+                                className="font-normal text-base text-black flex items-center gap-2 cursor-pointer hover:text-red-500 transition-all duration-500"
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
                                 Shop
@@ -52,7 +52,7 @@ const Header = () => {
 
                         {/* Other Links */}
                         {["On Sale", "New Arrivals", "Brands"].map((item, index) => (
-                            <Link key={index} href="#" className="font-normal text-base text-black">
+                            <Link key={index} href="#" className="font-normal text-base text-black hover:text-red-500 transition-all duration-500">
                                 {item}
                             </Link>
                         ))}
