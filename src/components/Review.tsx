@@ -14,10 +14,37 @@ interface Review {
 const Reviews = () => {
     const [activeTab, setActiveTab] = useState("Rating & Reviews");
     const [sortOrder, setSortOrder] = useState<"latest" | "oldest">("latest");
-    const sortedReviews = [...REVIEW_LIST].sort((a, b) => {
+    const [selectedFilter, setSelectedFilter] = useState<string>("All");
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const currentDate = new Date();
+
+    // Extract Unique Months from Reviews
+    const uniqueMonths = Array.from(
+        new Set(REVIEW_LIST.map(review => {
+            const date = new Date(review.date);
+            return `${date.toLocaleString("default", { month: "long" })} ${date.getFullYear()}`;
+        }))
+    );
+
+    // Sorting Logic
+    let filteredReviews = [...REVIEW_LIST].sort((a, b) => {
         return sortOrder === "latest"
             ? new Date(b.date).getTime() - new Date(a.date).getTime()
             : new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
+
+    // Filtering Logic
+    filteredReviews = filteredReviews.filter(review => {
+        const reviewDate = new Date(review.date);
+        const timeDiff = (currentDate.getTime() - reviewDate.getTime()) / (1000 * 60 * 60 * 24); // Difference in days
+
+        if (selectedFilter === "Last 24 Hours") return timeDiff <= 1;
+        if (selectedFilter === "Last 7 Days") return timeDiff <= 7;
+        if (uniqueMonths.includes(selectedFilter)) {
+            return selectedFilter === `${reviewDate.toLocaleString("default", { month: "long" })} ${reviewDate.getFullYear()}`;
+        }
+        return true; // Default All Reviews
     });
 
     return (
@@ -39,37 +66,64 @@ const Reviews = () => {
                 <div>
                     <div className="flex justify-between mt-[19px] mb-[29px]">
                         <h2 className="text-2xl font-bold">
-                            All Reviews <span className="font-normal text-base text-[#00000099]"> (451)</span>
+                            All Reviews <span className="font-normal text-base text-[#00000099]"> ({filteredReviews.length})</span>
                         </h2>
-                        <div
-                            className="flex bg-[#F0F0F0] gap-[21px] py-[13px] px-5 rounded-[62px] cursor-pointer"
-                            onClick={() => setSortOrder(sortOrder === "latest" ? "oldest" : "latest")}
-                        >
-                            <button className="font-medium text-base">{sortOrder === "latest" ? "Latest" : "Oldest"}</button>
-                            <Image src="/assets/images/svg/arrow.svg" alt="arrow" width={16} height={16} />
+                        <div className="relative">
+                            <button
+                                className="flex items-center bg-[#F0F0F0] gap-[10px] py-[13px] px-5 rounded-[62px] cursor-pointer"
+                                onClick={() => setDropdownOpen(!dropdownOpen)}
+                            >
+                                <span className="font-medium text-base">{selectedFilter}</span>
+                                <Image src="/assets/images/svg/arrow.svg" alt="arrow" width={16} height={16} />
+                            </button>
+
+                            {dropdownOpen && (
+                                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
+                                    {["All", "Last 7 Days", "Last 24 Hours", ...uniqueMonths].map((filterOption) => (
+                                        <button
+                                            key={filterOption}
+                                            className={`block w-full text-left px-4 py-2 ${selectedFilter === filterOption ? "bg-gray-200" : "hover:bg-gray-100"
+                                                }`}
+                                            onClick={() => {
+                                                setSelectedFilter(filterOption);
+                                                setDropdownOpen(false);
+                                            }}
+                                        >
+                                            {filterOption}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-5 mt-4">
-                        {sortedReviews.map((review) => (
-                            <div
-                                key={review.id}
-                                className="border border-[#0000001A] py-7 px-8 rounded-[20px] bg-white"
-                            >
-                                <div className="flex justify-between items-start">
-                                    <div>
-                                        <Image src={review.ratingImage} alt="rating" width={104} height={18.49} />
-                                        <div className="flex items-center gap-2 pt-[15px]">
-                                            <div className="font-bold text-xl">{review.name}</div>
-                                            <Image src="/assets/images/svg/green-tick.svg" alt="verified" width={19.5} height={19.5} />
+                        {filteredReviews.length > 0 ? (
+                            filteredReviews.map((review) => (
+                                <div key={review.id} className="border border-[#0000001A] py-7 px-8 rounded-[20px] bg-white">
+                                    <div className="flex justify-between items-start">
+                                        <div>
+                                            <Image src={review.ratingImage} alt="rating" width={104} height={18.49} />
+                                            <div className="flex items-center gap-2 pt-[15px]">
+                                                <div className="font-bold text-xl">{review.name}</div>
+                                                <Image src="/assets/images/svg/green-tick.svg" alt="verified" width={19.5} height={19.5} />
+                                            </div>
                                         </div>
+                                        <Image
+                                            className="cursor-pointer"
+                                            src="/assets/images/svg/three-dots.svg"
+                                            alt="dots"
+                                            width={20.25}
+                                            height={5.25}
+                                        />
                                     </div>
-                                    <Image className="cursor-pointer" src="/assets/images/svg/three-dots.svg" alt="dots" width={20.25} height={5.25}/>
+                                    <p className="text-[#00000099] font-normal text-base leading-[22px] pt-3 pb-6">{review.comment}</p>
+                                    <p className="text-[#00000099] font-medium text-base">Posted on {review.date}</p>
                                 </div>
-                                <p className="text-[#00000099] font-normal text-base leading-[22px] pt-3 pb-6">{review.comment}</p>
-                                <p className="text-[#00000099] font-medium text-base">Posted on {review.date}</p>
-                            </div>
-                        ))}
+                            ))
+                        ) : (
+                            <p className="text-center text-lg font-medium text-gray-600">No reviews found for {selectedFilter}.</p>
+                        )}
                     </div>
 
                     <button className="mt-9 border cursor-pointer border-[#0000001A] py-[13px] px-[42px] font-medium rounded-[62px] block mx-auto hover:bg-black hover:text-white transition-all duration-500">
