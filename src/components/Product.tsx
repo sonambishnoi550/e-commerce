@@ -13,16 +13,13 @@ const ProductDetails = () => {
     return (
         <div className="container mx-auto p-6 max-w-[1240px]">
             <div className="flex flex-col md:flex-row gap-8">
-                {/* Product Image */}
                 <Image
                     src={product.image}
                     alt={product.title}
                     width={500}
                     height={500}
-                    className="rounded-lg shadow-lg"
+                    className="rounded-lg"
                 />
-
-                {/* Product Details */}
                 <div>
                     <h1 className="text-3xl font-bold">{product.title}</h1>
                     <div className="flex items-center gap-2 my-2">
