@@ -1,13 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import { ARRIVALS_LIST, SELLING_LIST, LIKE_LIST, SORTED_LIST } from "../../../utils/helper";
-import Header from "@/components/common/Header";
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import { ARRIVALS_LIST, SELLING_LIST, LIKE_LIST, SORTED_LIST } from "../../../utils/helper";;
+import Header from '@/components/common/Header';
 import Reviews from "@/components/Review";
 import Like from "@/components/Like";
 import Footer from "@/components/Footer";
-
 type Product = {
   id: number;
   image: string;
@@ -19,54 +18,52 @@ type Product = {
   colors?: string[];
 };
 
-type CartItem = {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  color: string;
-  size: string;
-  quantity: number;
-};
-
-type ProductDetailProps = {
-  params: { title: string };
-};
-
-const Page: React.FC<ProductDetailProps> = ({ params }) => {
+const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
   const router = useRouter();
-  const [item, setItem] = useState<Product | null>(null);
-  const [selectedColor, setSelectedColor] = useState<string>("");
-  const [selectedSize, setSelectedSize] = useState<string>("Large");
-  const [quantity, setQuantity] = useState<number>(1);
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
-  const [alertMessage, setAlertMessage] = useState<string>("");
+  const [unwrappedParams, setUnwrappedParams] = useState<{ title: string } | null>(null);
+  const [item, setItem] = useState<any>(null);
+  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedSize, setSelectedSize] = useState('Large');
+  const [quantity, setQuantity] = useState(1);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [alertMessage, setAlertMessage] = useState('');
 
   useEffect(() => {
-    const slug = decodeURIComponent(params.title).trim().toLowerCase();
-    const allData: any[] = [...ARRIVALS_LIST, ...SELLING_LIST, ...LIKE_LIST];
-    const foundItem = allData.find((p) => p.title.toLowerCase() === slug);
+    const fetchParams = async () => {
+      const result = await params;
+      setUnwrappedParams(result);
+    };
+    fetchParams();
+  }, [params]);
+
+  useEffect(() => {
+    if (!unwrappedParams) return;
+
+    const slug = decodeURIComponent(unwrappedParams.title);
+    const formattedSlug = slug.replace(/-/g, ' ').toLowerCase();
+
+    const allData = [...ARRIVALS_LIST, ...SELLING_LIST, ...LIKE_LIST];
+    const foundItem = allData.find((p: any) => p.title.toLowerCase() === formattedSlug);
 
     if (foundItem) {
       setItem(foundItem);
-      setSelectedColor(foundItem.colors?.[0] ?? "");
+      setSelectedColor((foundItem as any).colors?.[0] ?? '');
+    } else {
+      setItem(null);
     }
-  }, [params]);
-
+  }, [unwrappedParams]);
   const handleAddToCart = () => {
-    if (!item) return;
-
     if (!selectedColor) {
-      setAlertMessage("Please select a color.");
+      setAlertMessage('Please select a color.');
       return;
     }
 
     if (!selectedSize) {
-      setAlertMessage("Please select a size.");
+      setAlertMessage('Please select a size.');
       return;
     }
 
-    const cartItem: CartItem = {
+    const cartItem = {
       id: item.id,
       image: item.image,
       name: item.title,
@@ -76,44 +73,42 @@ const Page: React.FC<ProductDetailProps> = ({ params }) => {
       quantity,
     };
 
-    const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
-    const existingItemIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingItemIndex = cart.findIndex((cartItem: any) => cartItem.id === item.id);
 
     if (existingItemIndex !== -1) {
-      cart[existingItemIndex].quantity += quantity;
+      cart[existingItemIndex] = cartItem;
     } else {
       cart.push(cartItem);
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    router.push("/cart");
+    localStorage.setItem('cart', JSON.stringify(cart));
+    router.push('/cart');
   };
 
-  const closeAlert = () => setAlertMessage("");
+  const closeAlert = () => setAlertMessage('');
 
   if (!item) return <p className="text-center text-xl font-bold">Product not found</p>;
 
-  const modifiedImages = [{ image: item.image, alt: item.title }, ...SORTED_LIST.slice(1, 3)];
-  const colors: string[] = item.colors || ["#4E5D48", "#2E2F35", "#1E293B"];
-  const sizes: string[] = ["Small", "Medium", "Large", "X-Large"];
+  const modifiedImages = [
+    { image: item.image, alt: item.title },
+    ...SORTED_LIST.slice(1, 3)
+  ];
+
+  const colors: string[] = item.colors || ['#4E5D48', '#2E2F35', '#1E293B'];
+  const sizes = ['Small', 'Medium', 'Large', 'X-Large'];
 
   return (
     <>
       <Header />
       <div className="container mx-auto py-10 px-4">
-        <h3 className="font-normal text-base text-black/60 pb-10 xl:text-left md:text-center text-left">
-          Home &gt; Shop &gt; Men <span className="text-black">&gt; T-shirts</span>
-        </h3>
-
+        <h3 className='font-normal text-base text-black/60 pb-10 xl:text-left md:text-center text-left'>Home &gt; Shop &gt; Men  <span className='text-black'>&gt; T-shirts</span> </h3>
         {alertMessage && (
           <div className="fixed top-5 right-5 bg-red-500 text-white px-6 py-4 rounded-lg z-50">
             {alertMessage}
-            <button className="ml-4 font-bold" onClick={closeAlert}>
-              ✕
-            </button>
+            <button className="ml-4 font-bold" onClick={closeAlert}>✕</button>
           </div>
         )}
-
         <div className="flex items-center w-full max-xl:flex-col gap-10">
           <div className="flex max-lg:flex-col-reverse gap-4">
             <div className="flex lg:flex-col gap-4">
@@ -124,8 +119,7 @@ const Page: React.FC<ProductDetailProps> = ({ params }) => {
                   alt={img.alt}
                   width={152}
                   height={167}
-                  className={`rounded-[20px] cursor-pointer md:w-[152px] w-[111px] md:h-[167px] h-[106px] ${selectedImageIndex === i ? "border border-black" : ""
-                    }`}
+                  className={`rounded-[20px] cursor-pointer md:w-[152px] w-[111px] md:h-[167px] h-[106px] ${selectedImageIndex === i ? 'border border-black' : ''}`}
                   onClick={() => setSelectedImageIndex(i)}
                 />
               ))}
@@ -138,30 +132,39 @@ const Page: React.FC<ProductDetailProps> = ({ params }) => {
               className="rounded-xl max-sm:max-w-[358px] max-sm:h-[290px]"
             />
           </div>
-
           <div>
-            <h1 className="text-4xl font-bold">{item.title}</h1>
+            <h1 className="text-4xl ff-integral font-bold">{item.title}</h1>
+            <div className="flex items-center mt-2">
+              <Image src="/assets/images/svg/5star.svg" alt="Star" width={104} height={19} />
+              <span className="ml-2 text-gray-500 text-sm">{item.rating}/5</span>
+            </div>
+            <p className="text-[32px] mt-4 font-bold">${item.price}</p>
+
             <p className="text-lg mt-6">Select Colors</p>
             <div className="flex gap-3 mt-2">
               {colors.map((color) => (
                 <button
                   key={color}
-                  onClick={() => setSelectedColor(color)}
-                  className={`w-8 h-8 rounded-full border cursor-pointer ${selectedColor === color ? "border-black" : ""
-                    }`}
+                  onClick={() => {
+                    console.log("Selected Color:", color);
+                    setSelectedColor(color);
+                  }}
+                  className={`w-8 h-8 rounded-full border cursor-pointer ${selectedColor === color ? 'border-black' : ''}`}
                   style={{ backgroundColor: color }}
-                />
+                >
+                  {selectedColor === color && <span className="text-white font-bold">✓</span>}
+                </button>
               ))}
             </div>
 
+
             <p className="text-lg mt-6">Choose Size</p>
-            <div className="flex gap-3 mt-2 border-b border-black/10 pb-6">
+            <div className="flex  md:gap-3 gap-2 mt-2 border-b border-black/10 pb-6">
               {sizes.map((size) => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
-                  className={`py-2 px-6 rounded-full cursor-pointer ${selectedSize === size ? "bg-black text-white" : "bg-gray-200"
-                    }`}
+                  className={`py-2 md:px-6 px-5 whitespace-nowrap  rounded-full md:text-base text-sm cursor-pointer ${selectedSize === size ? 'bg-black text-white' : 'bg-gray-200'}`}
                 >
                   {size}
                 </button>
@@ -169,24 +172,17 @@ const Page: React.FC<ProductDetailProps> = ({ params }) => {
             </div>
 
             <div className="flex gap-5 mt-6">
-              <div className="flex items-center bg-[#F0F0F0] rounded-full">
-                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-4 py-2 text-2xl font-bold">
-                  -
-                </button>
-                <span className="font-medium text-base">{quantity}</span>
-                <button onClick={() => setQuantity(quantity + 1)} className="px-4 py-2 text-2xl font-bold">
-                  +
-                </button>
+              <div className="flex items-center mt-6 gap-4 bg-[#F0F0F0] rounded-full">
+                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className=" px-4 py-2 text-2xl font-bold">-</button>
+                <span className='font-medium text-base'>{quantity}</span>
+                <button onClick={() => setQuantity(quantity + 1)} className=" px-4 py-2 text-2xl font-bold">+</button>
               </div>
 
-              <button onClick={handleAddToCart} className="bg-black text-white py-3 px-16 rounded-full">
-                Add to Cart
-              </button>
+              <button onClick={handleAddToCart} className="bg-black cursor-pointer text-white py-3 mt-4 whitespace-nowrap md:px-[157px] px-16  rounded-full">Add to Cart</button>
             </div>
           </div>
         </div>
       </div>
-
       <Reviews />
       <Like />
       <Footer />
@@ -194,4 +190,5 @@ const Page: React.FC<ProductDetailProps> = ({ params }) => {
   );
 };
 
-export default Page;
+export default ProductDetail;
+

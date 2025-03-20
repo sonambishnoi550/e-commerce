@@ -68,7 +68,7 @@ const Header = () => {
                             </div>
                         </button>
                         <Link href="#">
-                            <h2 className="font-bold text-[32px] text-black">SHOP.CO</h2>
+                            <h2 className="font-bold text-[32px] text-black font-integral">SHOP.CO</h2>
                         </Link>
                         <div className="hidden lg:flex gap-6 relative">
                             <div className="relative">

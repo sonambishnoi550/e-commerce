@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
             <div className="container max-w-[1240px] mx-auto px-4">
                 <div className="flex flex-wrap">
                     <div className="md:pt-[103px] pt-10">
-                        <h1 className="xl:max-w-[577px] relative z-10 lg:max-w-[625px] w-full font-bold md:text-[64px] text-4xl leading-[34px] md:leading-[64px] text-black">
+                        <h1 className="xl:max-w-[577px] font-integral relative z-10 lg:max-w-[625px] w-full font-bold md:text-[64px] text-4xl leading-[34px] md:leading-[64px] text-black">
                             FIND CLOTHES THAT MATCH YOUR STYLE
                         </h1>
                         <p className="font-normal md:text-base text-sm leading-[22px] text-black/60 lg:max-w-[545px] w-full md:pt-[32px] pt-5">

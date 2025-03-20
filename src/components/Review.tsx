@@ -11,7 +11,7 @@ interface Review {
     comment: string;
 }
 
-const Reviews = () => {
+const Review = () => {
     const [activeTab, setActiveTab] = useState("Rating & Reviews");
     const [sortOrder, setSortOrder] = useState<"latest" | "oldest">("latest");
     const [selectedFilter, setSelectedFilter] = useState<string>("All");
@@ -140,4 +140,4 @@ const Reviews = () => {
     );
 };
 
-export default Reviews;
+export default Review;

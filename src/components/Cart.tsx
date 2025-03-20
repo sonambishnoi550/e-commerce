@@ -15,7 +15,7 @@ interface CartItem {
     color: string;
 }
 
-const CartPage: React.FC = () => {
+const Cart: React.FC = () => {
     const [cart, setCart] = useState<CartItem[]>([]);
     const router = useRouter();
 
@@ -114,4 +114,4 @@ const CartPage: React.FC = () => {
     );
 };
 
-export default CartPage;
+export default Cart;

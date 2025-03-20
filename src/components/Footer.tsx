@@ -66,7 +66,7 @@ const Footer = () => {
         <div className="bg-[#F0F0F0] pt-40 md:pb-[81px] pb-[77px] ">
             <div className="container relative max-w-[1240px] mx-auto px-4">
                 <div className="bg-black rounded-[20px] lg:max-w-[992px] xl:max-w-[1280px] md:max-w-[694px] max-w-[600px] max-sm:max-w-[358px] mx-auto flex max-md:flex-col max-md:w-full justify-between xl:gap-40 py-9 xl:px-[64px] lg:px-10 px-6 absolute lg:-top-[97%] md:-top-[52%] -top-[45%]">
-                    <h3 className="font-bold xl:text-[40px] text-3xl text-white">
+                    <h3 className="font-bold xl:text-[40px] text-3xl text-white font-integral">
                         STAY UPTO DATE ABOUT OUR LATEST OFFERS
                     </h3>
                     <form className="flex flex-col w-full max-w-md" onSubmit={handleSubscribe}>
@@ -96,7 +96,7 @@ const Footer = () => {
                 <div className="flex flex-wrap justify-between md:gap-10 gap-6 pb-[50px]">
                     <div className="max-w-[248px]">
                         <Link href="#">
-                            <h2 className="font-bold md:text-[33.45px] text-[28.85px] text-black">SHOP.CO</h2>
+                            <h2 className="font-bold md:text-[33.45px] text-[28.85px] text-black font-integral">SHOP.CO</h2>
                         </Link>
                         <p className="font-normal text-sm leading-[22px] pt-[14px] md:pb-[35px] pb-5 text-black/60">
                             We have clothes that suit your style and which you’re proud to wear. From women to men.

@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'satoshi';
+    src: url("/assets/fonts/Satoshi-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'integral';
+    src: url("/assets/fonts/Fontspring-DEMO-integralcf-bold.otf");
+}
+
 body {
-    font-family: "integral-cf", sans-serif;
-    font-variant-numeric: lining-nums proportional-nums;
+    font-family: 'satoshi';
+}
+
+.font-integral {
+    font-family: 'integral';
 }
 .swiper-pagination-bullet-active {
     background-color: black !important;
