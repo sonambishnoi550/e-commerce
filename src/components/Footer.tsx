@@ -1,98 +1,100 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import emailjs from "emailjs-com";
 import { NAV_SECTIONS_LIST } from "../utils/helper";
-
+import CustomButton from "./common/CustomButton";
 const Footer = () => {
-    const [email, setEmail] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [message, setMessage] = useState("");
-    const [isValid, setIsValid] = useState(true);
-    const validateEmail = (email: string) => {
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailPattern.test(email);
-    };
-    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputEmail = e.target.value;
-        setEmail(inputEmail);
-        if (inputEmail.trim() === "" || validateEmail(inputEmail)) {
-            setIsValid(true);
-            setMessage("");
-        } else {
-            setIsValid(false);
-            setMessage("Invalid email format. Please enter a valid email.");
-        }
-    };
 
-    const handleSubscribe = async (e: React.FormEvent) => {
+    const form = useRef<HTMLFormElement>(null);
+    const [userEmail, setUserEmail] = useState("");
+    const [error, setError] = useState(false);
+
+    const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setLoading(true);
-        setMessage("");
-
-        if (!email.trim()) {
-            setMessage("Please enter your email.");
-            setIsValid(false);
-            setLoading(false);
-            return;
+        setError(true);
+        if (userEmail.length > 0 && emailRegex.test(userEmail)) {
+            setError(false);
+            if (form.current) {
+                emailjs
+                    .sendForm(
+                        "service_hvt2c6j",
+                        "template_3qy6u4q",
+                        form.current,
+                        "g1TgSgh61bwnSsjGZ"
+                    )
+                    .then(
+                        () => {
+                            console.log("send mail");
+                        },
+                        (error) => {
+                            console.log("Failed to send email. Please try again.");
+                            console.error("FAILED...", error.text);
+                        }
+                    );
+            }
+          
         }
-
-        if (!validateEmail(email)) {
-            setMessage("Invalid email format. Please enter a valid email.");
-            setIsValid(false);
-            setLoading(false);
-            return;
-        }
-        const serviceID = "service_hvt2c6j";
-        const templateID = "template_3qy6u4q";
-        const publicKey = "g1TgSgh61bwnSsjGZ";
-        const templateParams = { user_email: email };
-        try {
-            await emailjs.send(serviceID, templateID, templateParams, publicKey);
-            setMessage(" Subscribed successfully!");
-            setEmail("");
-            setIsValid(true);
-        } catch (error) {
-            console.error("EmailJS Error:", error);
-            setMessage("Failed to subscribe. Please try again.");
-        }
-        setLoading(false);
     };
-
     const year = new Date().getFullYear();
 
     return (
-        <div className="bg-[#F0F0F0] pt-40 md:pb-[81px] pb-[77px] ">
-            <div className="container relative max-w-[1240px] mx-auto px-4">
-                <div className="bg-black rounded-[20px] lg:max-w-[992px] xl:max-w-[1280px] md:max-w-[694px] max-w-[600px] max-sm:max-w-[358px] mx-auto flex max-md:flex-col max-md:w-full justify-between xl:gap-40 py-9 xl:px-[64px] lg:px-10 px-6 absolute lg:-top-[97%] md:-top-[52%] -top-[45%]">
-                    <h3 className="font-bold xl:text-[40px] text-3xl text-white font-integral">
-                        STAY UPTO DATE ABOUT OUR LATEST OFFERS
-                    </h3>
-                    <form className="flex flex-col w-full max-w-md" onSubmit={handleSubscribe}>
-                        <div className="flex relative">
-                            <Image src="/assets/images/svg/email.svg" width={20} height={20} alt="email-box"
-                                className="absolute left-[7%] top-1/2 transform -translate-y-1/2"
-                            />
-                            <input
-                                type="email"
-                                placeholder="Enter your email address"
-                                value={email}
-                                onChange={handleEmailChange}
-                                className={`bg-white font-normal text-base rounded-[62px] outline-none w-full pl-[52px] lg:pr-[124px] pr-24 pt-3 pb-[14px] ${!isValid ? "border-red-500 border-2" : ""
-                                    }`}
-                            />
+        <div >
+                <div className="max-w-[1240px] lg:mx-auto mx-4 rounded-[20px] w-fit -mb-20 xl:gap-[200px] relative z-10 flex max-lg:flex-col max-lg:justify-start max-lg:items-start max-lg:gap-8 items-center justify-between bg-black container py-[43px] px-[64px] max-sm:px-6 max-sm:py-8 max-md:px-7 max-md:py-10 max-lg:px-8">
+                    <div className="max-w-[651px] ">
+                        <h3 className="text-white font-integral max-w-[552px] lg:text-[40px] md:text-4xl text-2xl font-bold">
+                            STAY UPTO DATE ABOUT OUR LATEST OFFERS
+                        </h3>
+                    </div>
+                    <form
+                        ref={form}
+                        onSubmit={sendEmail}
+                        className="max-w-[349px] flex flex-col gap-3.5 w-full max-lg:mx-auto"
+                    >
+                        <div>
+                            <div className="w-full py-3 px-[17px] bg-white items-center rounded-[62px] flex">
+                                <div className="flex w-full items-center gap-3.5">
+                                    <label className="cursor-pointer" htmlFor="mail">
+                                        <Image src="/assets/images/svg/email.svg" width={20} height={20} alt="email-box" />
+                                    </label>
+                                    <div className="w-full">
+                                        <input
+                                            className="w-full text-black/40 outline-none leading-[100%]"
+                                            id="mail"
+                                            placeholder="Enter your email address"
+                                            type="email"
+                                            name="email"
+                                            value={userEmail}
+                                            onChange={(e) => setUserEmail(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            {error && userEmail.length === 0 ? (
+                                <p className="text-red-900 font-bold max-sm:text-sm pt-1 pl-2 ">
+                                    Please enter your email address
+                                </p>
+                            ) : (
+                                error &&
+                                !emailRegex.test(userEmail) && (
+                                    <p className="text-red-900 font-bold max-sm:text-sm pt-1 pl-2 ">
+                                        Please enter a valid email address
+                                    </p>
+                                )
+                            )}
                         </div>
-                        <button
-                            type="submit"
-                            className="bg-white text-black rounded-[62px] font-medium text-base py-3 cursor-pointer mt-4"
-                            disabled={loading}
-                        >
-                            {loading ? "Subscribing..." : "Subscribe to Newsletter"}
-                        </button>
-                        {message && <p className="text-white text-sm mt-2">{message}</p>}
+
+                        <CustomButton
+                            text="Subscribe to Newsletter"
+                            myClass="bg-white !text-black font-medium leading-[100%] w-full py-3.5"
+                        />
                     </form>
                 </div>
+        <div className="bg-[#F0F0F0] md:pb-[81px] pb-[77px] px-4 pt-40">
+            <div className="container relative max-w-[1240px] mx-auto px-4">
                 <div className="flex flex-wrap justify-between md:gap-10 gap-6 pb-[50px]">
                     <div className="max-w-[248px]">
                         <Link href="#">
@@ -149,6 +151,7 @@ const Footer = () => {
 
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     );

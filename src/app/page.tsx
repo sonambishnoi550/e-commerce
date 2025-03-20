@@ -8,7 +8,7 @@ import Customers from '@/components/Customers'
 import Footer from '@/components/Footer'
 const page = () => {
   return (
-    <div>
+    <>
       <Hero />
       <Logo />
       <Arrivals />
@@ -16,7 +16,7 @@ const page = () => {
       <Style />
       <Customers />
       <Footer />
-    </div>
+    </>
   )
 }
 

@@ -113,7 +113,7 @@ const Header = () => {
                             <Link href="/cart" className="relative cursor-pointer">
                                 <Image src="/assets/images/svg/cart.svg" alt="cart" width={24} height={24} />
                                 {cartCount > 0 && (
-                                    <span className="absolute -top-2 -right-2 bg-black text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                                         {cartCount}
                                     </span>
                                 )}

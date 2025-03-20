@@ -54,7 +54,7 @@ const CommonSlider: React.FC<CommonSliderProps> = ({ title, list }) => {
                     {list.map((item) => (
                         <SwiperSlide key={item.id} onClick={() => handleClick(item)} className='pb-16 xl:pb-2 cursor-pointer'>
                             <div className="rounded-[20px] md:w-[295px] w-[198px]">
-                                <Image src={item.image} alt={item.title} width={295} height={298} className="mx-auto rounded-[20px] md:h-[298px] h-[200px]" />
+                                <Image src={item.image} alt={item.title} width={295} height={298} className="mx-auto rounded-[20px] md:h-[298px] h-[200px] hover:scale-95 transition-all duration-500" />
                                 <h3 className="mt-4 md:text-xl text-base font-semibold">{item.title}</h3>
                                 <div className="flex gap-[13px] pb-2">
                                     <Image src={item.ratingImage} alt="rating" width={104} height={18.49} />
