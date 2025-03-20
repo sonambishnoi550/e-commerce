@@ -1,26 +1,73 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import emailjs from "emailjs-com";
 import { NAV_SECTIONS_LIST } from "../utils/helper";
 const Footer = () => {
+    const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState("");
+
+    const handleSubscribe = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setMessage("");
+
+        if (!email) {
+            setMessage("Please enter your email.");
+            setLoading(false);
+            return;
+        }
+
+        const serviceID = "your_service_id";  // Replace with your EmailJS service ID
+        const templateID = "your_template_id"; // Replace with your EmailJS template ID
+        const publicKey = "your_public_key"; // Replace with your EmailJS public key
+
+        const templateParams = { user_email: email };
+
+        try {
+            await emailjs.send(serviceID, templateID, templateParams, publicKey);
+            setMessage("Subscribed successfully! ✅");
+            setEmail(""); // Clear input after successful subscription
+        } catch (error) {
+            console.error("EmailJS Error:", error);
+            setMessage("Failed to subscribe. Please try again.");
+        }
+
+        setLoading(false);
+    };
+
     const year = new Date().getFullYear();
     return (
         <div className="bg-[#F0F0F0] pt-40 md:pb-[81px] pb-[77px] relative">
             <div className="container max-w-[1240px] mx-auto px-4">
                 <div className="bg-black rounded-[20px] flex max-md:flex-col max-md:w-full justify-between xl:gap-40 py-9 xl:px-[64px] lg:px-10 px-6 absolute -top-[17%] !max-w-[1240px] mr-8 max-xl:left-[2%] max-xl:right-[5%]">
-                    <h3 className="font-bold xl:text-[40px] text-3xl xl:max-w-[551px] lg:max-w-[415px] max-w-[351px] text-white">STAY UPTO DATE ABOUT OUR LATEST OFFERS</h3>
-                    <div className="flex flex-col">
+                    <h3 className="font-bold xl:text-[40px] text-3xl xl:max-w-[551px] lg:max-w-[415px] max-w-[351px] text-white">
+                        STAY UPTO DATE ABOUT OUR LATEST OFFERS
+                    </h3>
+                    <form className="flex flex-col w-full max-w-md" onSubmit={handleSubscribe}>
                         <div className="flex relative">
-                            <Image src="/assets/images/svg/email.svg"
-                                width={20} height={20}
-                                alt="email-box"
+                            <Image src="/assets/images/svg/email.svg" width={20} height={20} alt="email-box"
                                 className="absolute left-[7%] top-1/2 transform -translate-y-1/2"
                             />
-                            <input type="text" placeholder="Enter your email address " className="bg-white font-normal text-base rounded-[62px] outline-none w-full pl-[52px] lg:pr-[124px] pr-24 relative-10 pt-3 pb-[14px]" />
-
+                            <input
+                                type="email"
+                                placeholder="Enter your email address"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="bg-white font-normal text-base rounded-[62px] outline-none w-full pl-[52px] lg:pr-[124px] pr-24 pt-3 pb-[14px]"
+                            />
                         </div>
-\                        <button className="bg-white text-black rounded-[62px] font-medium text-base py-3 cursor-pointer">Subscribe to Newsletter</button>
-                    </div>
+                        <button
+                            type="submit"
+                            className="bg-white text-black rounded-[62px] font-medium text-base py-3 cursor-pointer mt-4"
+                            disabled={loading}
+                        >
+                            {loading ? "Subscribing..." : "Subscribe to Newsletter"}
+                        </button>
+                        {message && <p className="text-white text-sm mt-2">{message}</p>}
+                    </form>
                 </div>
                 <div className="flex flex-wrap justify-between md:gap-10 gap-6 pb-[50px]">
                     <div className="max-w-[248px]">

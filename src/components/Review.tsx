@@ -18,23 +18,17 @@ const Reviews = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const currentDate = new Date();
-
-    // Extract Unique Months from Reviews
     const uniqueMonths = Array.from(
         new Set(REVIEW_LIST.map(review => {
             const date = new Date(review.date);
             return `${date.toLocaleString("default", { month: "long" })} ${date.getFullYear()}`;
         }))
     );
-
-    // Sorting Logic
     let filteredReviews = [...REVIEW_LIST].sort((a, b) => {
         return sortOrder === "latest"
             ? new Date(b.date).getTime() - new Date(a.date).getTime()
             : new Date(a.date).getTime() - new Date(b.date).getTime();
     });
-
-    // Filtering Logic
     filteredReviews = filteredReviews.filter(review => {
         const reviewDate = new Date(review.date);
         const timeDiff = (currentDate.getTime() - reviewDate.getTime()) / (1000 * 60 * 60 * 24); // Difference in days
@@ -44,7 +38,7 @@ const Reviews = () => {
         if (uniqueMonths.includes(selectedFilter)) {
             return selectedFilter === `${reviewDate.toLocaleString("default", { month: "long" })} ${reviewDate.getFullYear()}`;
         }
-        return true; // Default All Reviews
+        return true;
     });
 
     return (
