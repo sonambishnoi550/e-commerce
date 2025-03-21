@@ -237,7 +237,7 @@ export const SORTED_LIST = [
 ];
 
 export const PAYMENTS_LIST = [
-    "assets/images/svg/visa.svg",
+    "/assets/images/svg/visa.svg",
     "/assets/images/svg/circle.svg",
     "/assets/images/svg/paypal.svg",
     "/assets/images/svg/pay.svg",
