@@ -4,7 +4,7 @@ import { ChevronDown, X } from "lucide-react";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-
+import { HEADER_LIST } from "@/utils/helper";
 const Header = () => {
     const [open, setOpen] = useState<boolean>();
     const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
@@ -85,9 +85,14 @@ const Header = () => {
                                     </div>
                                 )}
                             </div>
-                            {["On Sale", "New Arrivals", "Brands"].map((item, index) => (
-                                <Link key={index} href="#" className="font-normal text-base text-black hover:text-red-500 transition-all duration-500">
-                                    {item}
+                            {HEADER_LIST.map((link: any, index: number) => (
+                                <Link
+                                    key={index}
+                                    href={link.link}
+                                    className={`relative  transition-all duration-500 ${pathname === link.link ? 'underline font-bold transition-all duration-500' : ''}`}
+                                  
+                                >
+                                    <span className="hover:text-red-500 transition-all duration-500">{link.title}</span>
                                 </Link>
                             ))}
                         </div>

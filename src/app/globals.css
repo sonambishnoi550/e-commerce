@@ -10,8 +10,9 @@
     src: url("/assets/fonts/Fontspring-DEMO-integralcf-bold.otf");
 }
 
-body {
+body,html {
     font-family: 'satoshi';
+    scroll-behavior: smooth;
 }
 
 .font-integral {

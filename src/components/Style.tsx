@@ -3,7 +3,7 @@ import CustomHeading from './common/CustomHeading'
 import Image from 'next/image'
 const Style = () => {
   return (
-      <div>
+      <div id='brands'>
           <div className="container max-w-[1240px] mx-auto max-xl:px-4">
               <div className='bg-[#F0F0F0] md:px-[64px] px-6 md:pt-[70px] pt-10 md:pb-[76px] pb-[27px] rounded-[40px]'>
                   <CustomHeading myText='BROWSE BY DRESS STYLE' />

@@ -4,7 +4,7 @@ import { SELLING_LIST } from '@/utils/helper'
 
 const Selling = () => {
   return (
-      <div>
+      <div id='selling'>
           <CommonSlider title='TOP SELLING' list={SELLING_LIST}/>
     </div>
   )

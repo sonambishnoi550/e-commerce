@@ -1,3 +1,17 @@
+export const HEADER_LIST = [
+    {
+        title: "On Sale",
+        link: "#selling",
+    },
+    {
+        title: "New Arrivals",
+        link: "#arrivals",
+    },
+    {
+        title: "Brands",
+        link: "#brands",
+    },
+];
 export const COUNT_LIST = [
     { value: '200+', label: 'International Brands' },
     { value: '2,000+', label: 'High-Quality Products' },
