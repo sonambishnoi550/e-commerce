@@ -19,8 +19,8 @@ const Header = () => {
     };
 
     useEffect(() => {
-        const bannerState = localStorage.getItem("bannerDismissed");
-        if (bannerState === "true") {
+        const bannerState = localStorage.getItem('bannerDismissed');
+        if (bannerState === 'false') {
             setShowBanner(false);
         }
 
@@ -36,21 +36,21 @@ const Header = () => {
 
     const handleCloseBanner = () => {
         setShowBanner(false);
-        localStorage.setItem("bannerDismissed", "true");
+
     };
 
     return (
         <div>
             {showBanner && (
                 <div className="bg-black">
-                    <div className="text-white md:text-center py-2 flex justify-center container px-4 mx-auto relative">
+                    <div className="text-white md:text-center py-2 flex md:justify-center container px-4 mx-auto relative">
                         <span className="md:text-sm text-xs text-center flex justify-center items-center font-normal">
                             Sign up and get 20% off on your first order.{" "}
                             <Link href="#" className="underline font-medium">
                                 Sign Up Now
                             </Link>
                         </span>
-                        <button onClick={handleCloseBanner} className="absolute right-4 top-2 cursor-pointer md:block hidden">
+                        <button onClick={handleCloseBanner} className="absolute right-4 top-2 cursor-pointer">
                             <X size={20} />
                         </button>
                     </div>
