@@ -65,7 +65,7 @@ const Header = () => {
                             <span className={`bg-black  w-6 h-0.5 block relative after:bg-transparent after:absolute after:top-0 after:left-0 after:w-full after:h-0.5 after:transition-all after:duration-300 transition-all duration-300 ${open ? "rotate-45 after:rotate-90 after:!bg-black" : ""}`}></span>
                             <span className={`bg-black w-6 h-0.5 block transition-all duration-300 ${open ? "-translate-x-10" : ""}`}></span>
                         </button>
-                        <Link href="#">
+                        <Link href="/">
                             <h2 className="font-bold text-[32px] text-black font-integral">SHOP.CO</h2>
                         </Link>
                         <div className="hidden lg:flex gap-6 relative">

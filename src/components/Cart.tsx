@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Footer from '@/components/Footer';
 import Header from '@/components/common/Header';
 import CustomHeading from '@/components/common/CustomHeading';
-
+import Swal from 'sweetalert2';
 interface CartItem {
     name: string;
     price: number;
@@ -39,6 +39,18 @@ const Cart: React.FC = () => {
     const handleRemove = (index: number) => {
         const updatedCart = cart.filter((_, i) => i !== index);
         updateCart(updatedCart);
+    };
+    const handleCheckout = () => {
+        Swal.fire({
+            title: 'Order Placed!',
+            text: 'Thank You.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            setCart([]);
+            localStorage.removeItem('cart');
+            window.dispatchEvent(new Event('cartUpdate'));
+        });
     };
 
     const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -100,12 +112,12 @@ const Cart: React.FC = () => {
                         <div className="mb-6 flex gap-3 items-center justify-center">
                             <div className='flex bg-[#F0F0F0] gap-3 rounded-full py-3 md:px-4 px-2 items-center w-full mt-3'>
                                 <Image src="/assets/images/svg/promo.svg" alt="promo" width={24} height={24} />
-                                <input type="text" placeholder="Add promo code" className="w-full rounded-full md:text-base text-sm" />
+                                <input type="text" placeholder="Add promo code" className="w-full outline-none rounded-full md:text-base text-sm" />
                             </div>
                             <button className="px-[38px] bg-black text-white py-3 mt-3 rounded-full cursor-pointer hover:bg-white hover:text-black border bprder-black transition-all duration-500">Apply</button>
                         </div>
 
-                        <button className="w-full bg-black text-white py-3 rounded-full cursor-pointer hover:bg-white hover:text-black border bprder-black transition-all duration-500">Go to Checkout →</button>
+                        <button onClick={handleCheckout}  className="w-full bg-black text-white py-3 rounded-full cursor-pointer hover:bg-white hover:text-black border bprder-black transition-all duration-500">Go to Checkout →</button>
                     </div>
                 </div>
             </div>

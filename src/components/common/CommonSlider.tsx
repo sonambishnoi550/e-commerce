@@ -35,7 +35,7 @@ const CommonSlider: React.FC<CommonSliderProps> = ({ title, list }) => {
 
     return (
         <section className="md:pt-[72px] pt-[50px]">
-            <div className={`container mx-auto ${title === 'New Arrivals' ? 'border-b border-black/10' : ''} md:pb-[64px] pb-10 px-4`}>
+            <div className={`container max-w-[1240px] mx-auto ${title === 'New Arrivals' ? 'border-b border-black/10' : ''} md:pb-[64px] pb-10 px-4`}>
                 <CustomHeading myText={title} myClass="!mb-[55px]" />
                 <Swiper
                     modules={[Pagination, Autoplay]}
