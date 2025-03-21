@@ -18,7 +18,7 @@ type Product = {
   colors?: string[];
 };
 
-const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
+const page = ({ params }: { params: Promise<{ title: string }> }) => {
   const router = useRouter();
   const [unwrappedParams, setUnwrappedParams] = useState<{ title: string } | null>(null);
   const [item, setItem] = useState<any>(null);
@@ -190,5 +190,5 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
   );
 };
 
-export default ProductDetail;
+export default page;
 
