@@ -267,3 +267,11 @@ export const PAYMENTS_LIST = [
     "/assets/images/svg/pay.svg",
     "/assets/images/svg/google-pay.svg",
 ];
+
+export const LOGO_LIST = [
+    { src: '/assets/images/png/versace.png', alt: 'Versace', width: 166.48, height: 33.16 },
+    { src: '/assets/images/png/zara.png', alt: 'Zara', width: 91, height: 38 },
+    { src: '/assets/images/png/gucci.png', alt: 'Gucci', width: 156, height: 36 },
+    { src: '/assets/images/png/prada.png', alt: 'Prada', width: 194, height: 32 },
+    { src: '/assets/images/png/calvin.png', alt: 'Calvin Klein', width: 206.78, height: 33.35 }
+];

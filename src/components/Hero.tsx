@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
                             Browse through our diverse range of meticulously crafted garments, designed to bring out
                             your individuality and cater to your sense of style.
                         </p>
-                        <button className="bg-black cursor-pointer max-sm:w-full text-white py-[14px] px-17 text-base font-medium rounded-[62px] md:mt-8 mt-6 md:mb-12 mb-5">
+                        <button className="bg-black hover:bg-white border border-black transition-all duration-500 hover:text-black cursor-pointer max-sm:w-full text-white py-[14px] px-17 text-base font-medium rounded-[62px] md:mt-8 mt-6 md:mb-12 mb-5">
                             Shop Now
                         </button>
                         <div
