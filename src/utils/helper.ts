@@ -13,6 +13,9 @@ export const ARRIVALS_LIST = [
         price: '120',
         originalPrice: null,
         discount: null,
+       description:
+            "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+
     },
     {
         id: 2,
@@ -23,6 +26,9 @@ export const ARRIVALS_LIST = [
         price: '240',
         originalPrice: '260',
         discount: '20%',
+        description:
+            "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+
     },
     {
         id: 3,
@@ -33,6 +39,9 @@ export const ARRIVALS_LIST = [
         price: '80',
         originalPrice: null,
         discount: null,
+       description:
+            "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+
     },
     {
         id: 4,
@@ -43,6 +52,9 @@ export const ARRIVALS_LIST = [
         price: '130',
         originalPrice: '160',
         discount: '30%',
+       description:
+            "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+
     },
 ];
 export const SELLING_LIST = [
@@ -55,6 +67,9 @@ export const SELLING_LIST = [
         price: '120',
         originalPrice: null,
         discount: null,
+        description:
+            "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+
     },
     {
         id: 2,
@@ -65,6 +80,9 @@ export const SELLING_LIST = [
         price: '240',
         originalPrice: '260',
         discount: '20%',
+description:
+            "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+
     },
     {
         id: 3,
@@ -75,6 +93,9 @@ export const SELLING_LIST = [
         price: '80',
         originalPrice: null,
         discount: null,
+       description:
+            "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+
     },
     {
         id: 4,
@@ -85,6 +106,9 @@ export const SELLING_LIST = [
         price: '130',
         originalPrice: null,
         discount: null,
+        description:
+            "This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.",
+
     },
 ];
 export const CUSTOMERS_LIST = [

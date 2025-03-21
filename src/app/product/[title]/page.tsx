@@ -119,7 +119,7 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
                   alt={img.alt}
                   width={152}
                   height={167}
-                  className={`rounded-[20px] cursor-pointer md:w-[152px] w-[111px] md:h-[167px] h-[106px] ${selectedImageIndex === i ? 'border border-black' : ''}`}
+                  className={` cursor-pointer md:w-[152px] w-[111px] md:h-[167px] h-[106px] ${selectedImageIndex === i ? 'border border-black rounded-[20px]' : ''}`}
                   onClick={() => setSelectedImageIndex(i)}
                 />
               ))}
@@ -129,7 +129,7 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
               alt={modifiedImages[selectedImageIndex].alt}
               width={444}
               height={530}
-              className="rounded-xl max-sm:max-w-[358px] max-sm:h-[290px]"
+              className=" max-sm:max-w-[358px] max-sm:h-[290px]"
             />
           </div>
           <div>
@@ -139,7 +139,7 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
               <span className="ml-2 text-gray-500 text-sm">{item.rating}/5</span>
             </div>
             <p className="text-[32px] mt-4 font-bold">${item.price}</p>
-
+            <p className="text-base mt-5 font-normal max-w-[590px] text-gray-500">{item.description}</p>
             <p className="text-lg mt-6">Select Colors</p>
             <div className="flex gap-3 mt-2">
               {colors.map((color) => (
