@@ -235,3 +235,11 @@ export const SORTED_LIST = [
     { id: 2, image: '/assets/images/png/t-shirt-two.png', alt: 't-shirt' },
     { id: 3, image: '/assets/images/png/t-shirt-three.png', alt: 't-shirt' }
 ];
+
+export const PAYMENTS_LIST = [
+    "assets/images/svg/visa.svg",
+    "/assets/images/svg/circle.svg",
+    "/assets/images/svg/paypal.svg",
+    "/assets/images/svg/pay.svg",
+    "/assets/images/svg/google-pay.svg",
+];

@@ -43,14 +43,14 @@ const Header = () => {
         <div>
             {showBanner && (
                 <div className="bg-black">
-                    <div className="text-white md:text-center py-2 flex container px-4 mx-auto relative">
-                        <span className="md:text-sm text-xs text-right font-normal">
+                    <div className="text-white md:text-center py-2 flex justify-center container px-4 mx-auto relative">
+                        <span className="md:text-sm text-xs text-center flex justify-center items-center font-normal">
                             Sign up and get 20% off on your first order.{" "}
                             <Link href="#" className="underline font-medium">
                                 Sign Up Now
                             </Link>
                         </span>
-                        <button onClick={handleCloseBanner} className="absolute right-4 top-2 cursor-pointer">
+                        <button onClick={handleCloseBanner} className="absolute right-4 top-2 cursor-pointer md:block hidden">
                             <X size={20} />
                         </button>
                     </div>
@@ -61,9 +61,9 @@ const Header = () => {
                 <div className="container max-w-[1240px] mx-auto px-4">
                     <div className="flex justify-between items-center">
                         <button className="overflow-hidden relative z-50 lg:hidden size-6 max-sm:h-4 flex flex-col justify-between items-center " onClick={() => setOpen(!open)}>
-                            <span className={`bg-black rounded-full w-6 h-1 block transition-all duration-300 ${open ? "translate-x-10" : ""}`}></span>
-                            <span className={`bg-black rounded-full after:rounded-lg w-6 h-1 block relative after:bg-transparent after:absolute after:top-0 after:left-0 after:w-full after:h-1 after:transition-all after:duration-300 transition-all duration-300 ${open ? "rotate-45 after:rotate-90 after:!bg-black" : ""}`}></span>
-                            <span className={`bg-black rounded-full w-6 h-1 block transition-all duration-300 ${open ? "-translate-x-10" : ""}`}></span>
+                            <span className={`bg-black w-6 h-0.5 block transition-all duration-300 ${open ? "translate-x-10" : ""}`}></span>
+                            <span className={`bg-black  w-6 h-0.5 block relative after:bg-transparent after:absolute after:top-0 after:left-0 after:w-full after:h-0.5 after:transition-all after:duration-300 transition-all duration-300 ${open ? "rotate-45 after:rotate-90 after:!bg-black" : ""}`}></span>
+                            <span className={`bg-black w-6 h-0.5 block transition-all duration-300 ${open ? "-translate-x-10" : ""}`}></span>
                         </button>
                         <Link href="#">
                             <h2 className="font-bold text-[32px] text-black font-integral">SHOP.CO</h2>

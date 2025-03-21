@@ -3,7 +3,7 @@ import React, { useState,useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import emailjs from "emailjs-com";
-import { NAV_SECTIONS_LIST } from "../utils/helper";
+import { NAV_SECTIONS_LIST,PAYMENTS_LIST } from "../utils/helper";
 import CustomButton from "./common/CustomButton";
 const Footer = () => {
 
@@ -143,12 +143,17 @@ const Footer = () => {
                 <div className="flex flex-wrap md:justify-between justify-center pt-[25px]">
                     <p className="mt-1 text-sm">Shop.co © 2000-{year}, All Rights Reserved</p>
                     <div className="flex gap-2 max-md:mt-6">
-                        <Image className="hover:scale-125 transition-all duration-500" src="/assets/images/svg/visa.svg" alt="visa" width={46.61} height={30.03} />
-                        <Image className="hover:scale-125 transition-all duration-500" src="/assets/images/svg/circle.svg" alt="circle" width={46.61} height={30.03} />
-                        <Image className="hover:scale-125 transition-all duration-500" src="/assets/images/svg/paypal.svg" alt="paypal" width={46.61} height={30.03} />
-                        <Image className="hover:scale-125 transition-all duration-500" src="/assets/images/svg/pay.svg" alt="pay" width={46.61} height={30.03} />
-                        <Image className="hover:scale-125 transition-all duration-500" src="/assets/images/svg/google-pay.svg" alt="google-pay" width={46.61} height={30.03} />
-
+                            {PAYMENTS_LIST.map((item, inedx) => (
+                                <div key={inedx}>
+                                    <Image
+                                        width={46.61}
+                                        height={30.3}
+                                        alt="payment-company"
+                                        src={item}
+                                        className="pointer-events-none cursor-pointer hover:scale-125 transition-all duration-500 payment-company-images max-md:h-[26px] max-md:w-[40px]"
+                                    />
+                                </div>
+                            ))}
                     </div>
                 </div>
             </div>
