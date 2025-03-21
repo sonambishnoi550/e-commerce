@@ -169,7 +169,7 @@ export const LIKE_LIST = [
     {
         id: 2,
         image: '/assets/images/png/like-two.png',
-        title: 'Gradient Graphic T-shirt',
+        title: 'Gradient Graphic T shirt',
         ratingImage: '/assets/images/svg/arrival-two-rating.svg',
         rating: 3.5,
         price: '145',
@@ -189,7 +189,7 @@ export const LIKE_LIST = [
     {
         id: 4,
         image: '/assets/images/png/like-four.png',
-        title: 'Black Striped T-shirt',
+        title: 'Black Striped T shirt',
         ratingImage: '/assets/images/svg/selling-five-star.svg',
         rating: 5,
         price: '120',

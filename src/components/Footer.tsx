@@ -150,7 +150,7 @@ const Footer = () => {
                                         height={30.3}
                                         alt="payment-company"
                                         src={item}
-                                        className="pointer-events-none cursor-pointer hover:scale-125 transition-all duration-500 payment-company-images max-md:h-[26px] max-md:w-[40px]"
+                                        className=" cursor-pointer hover:scale-125 transition-all duration-500 payment-company-images max-md:h-[26px] max-md:w-[40px]"
                                     />
                                 </div>
                             ))}
