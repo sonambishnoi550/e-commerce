@@ -11,7 +11,7 @@ import CustomHeading from './common/CustomHeading';
 
 const Customers = () => {
     return (
-        <section className="pt-16 pb-40 overflow-hidden">
+        <section className="md:pt-16  md:pb-20 py-[50px] overflow-hidden">
             <div className="container mx-auto px-4 relative">
                 <CustomHeading myText="OUR HAPPY CUSTOMERS" myClass="!mb-[40px] !text-left" />
                 <button className="swiper-button-prev absolute xl:!left-[94%] lg:!left-[92%] md:!left-[90%] !left-[80%] !top-[95%] transform -translate-y-1/2  z-10">
@@ -21,7 +21,7 @@ const Customers = () => {
                     <Image src="/assets/images/svg/slider-right-arrow.svg" alt="Next" width={24} height={24} />
                 </button>
             </div>
-                <div className="relative">
+                <div className="relative max-sm:px-4">
                     <Swiper
                         modules={[Navigation]}
                         spaceBetween={20}

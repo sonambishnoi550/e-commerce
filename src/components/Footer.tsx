@@ -44,11 +44,11 @@ const Footer = () => {
     return (
         <div >
                 <div className="max-w-[1240px] lg:mx-auto mx-4 rounded-[20px] w-fit -mb-20 xl:gap-[200px] relative z-10 flex max-lg:flex-col max-lg:justify-start max-lg:items-start max-lg:gap-8 items-center justify-between bg-black container py-[43px] px-[64px] max-sm:px-6 max-sm:py-8 max-md:px-7 max-md:py-10 max-lg:px-8">
-                    <div className="max-w-[651px] ">
-                        <h3 className="text-white font-integral max-w-[552px] lg:text-[40px] md:text-4xl text-2xl font-bold">
+                    
+                        <h3 className="text-white font-integral max-w-[751px] lg:text-[40px] md:text-4xl text-2xl font-bold">
                             STAY UPTO DATE ABOUT OUR LATEST OFFERS
                         </h3>
-                    </div>
+              
                     <form
                         ref={form}
                         onSubmit={sendEmail}

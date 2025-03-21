@@ -75,8 +75,8 @@ const CommonSlider: React.FC<CommonSliderProps> = ({ title, list }) => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                {(title === 'New Arrivals' || title === 'Best Sellers') && (
-                    <CustomButton text="View All" myClass="px-[80px] !justify-center py-[13px] max-sm:!w-full !text-black !bg-white !border-black/10 !flex !mx-auto mt-7 md:mt-[36px] hover:!bg-black hover:!text-white" />
+                {(title === 'NEW ARRIVALS' || title === 'TOP SELLING') && (
+                    <CustomButton text="View All" myClass="px-[80px] !justify-center py-[13px] max-sm:!w-full !block !text-black !bg-white !border-black/10 !flex !mx-auto mt-7 md:mt-[36px] hover:!bg-black hover:!text-white" />
                 )}
             </div>
         </section>
